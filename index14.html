@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>进度条</title>
+</head>
+<body>
+  <div class="steps">
+    <div class="test">
+      <span class="circle">1</span>
+      <span class="title">待评估</span>
+    </div>
+    <div class="test">
+        <span class="circle">2</span>
+        <span class="title">待评估</span>
+      </div>
+      <div class="test">
+          <span class="circle">3</span>
+          <span class="title">待评估</span>
+        </div>
+  </div>
+  <style>
+    .steps{
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+    .steps .test{
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      margin: 0 5px;
+      width: 120px;
+    }
+    .steps .test span.circle{
+      display: inline-block;
+      width:25px;
+      height: 25px;
+      line-height: 25px;
+      border: 1px solid ;
+      border-radius: 100%;
+      position: relative;
+      margin-left: 10px;
+      margin-bottom: 8px;
+    }
+    .steps .test span.circle::after{
+      content: '';
+      position: absolute;
+      width: 9999px;
+      height: 1px;
+      left: 100%;
+      top: 50%;
+      background: #e8eaec;
+      margin: 0 10px;
+    }
+    .steps .test span.title{
+      display: inline-block;
+      text-align: left;
+      color: #999999;
+    }
+    .steps div.test:nth-last-child(1) span.circle::after{
+      width: 0;
+      height: 0px;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>defineproperty</title>
+    <script>
+        function scl(){
+            console.log('111111111111');
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let target = document.getElementById('target').offsetTop;
+            let restTop = target - parseInt(scrollTop);
+            console.log('scrollTop', parseInt(scrollTop));
+            console.log('target', target);
+            console.log('restTop', restTop);
+        }
+        // changeScrol() {
+    //      // 设备/屏幕高度
+    //      let scrollTop =document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
+    //      let target = document.getElementById('target').offsetTop;
+    //      let restTop = target - parseInt(scrollTop);
+    //      console.log('scrollTop', parseInt(scrollTop));
+    //      console.log('target', target);
+    //      console.log('restTop', restTop);
+    // },
+        window.addEventListener('scroll', scl, true); 
+    </script>
+</head>
+
+<body style="height:2000px">
+    <div style="width: 100px;height: 100px;background: lightblue; position: relative;top: 300px;" id="target">
+        11111
+    </div>
+</body>
+
+</html>

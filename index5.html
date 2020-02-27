@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getA() {
+            return new Promise(function (resolve, reject) {
+                console.log(11111);
+                setTimeout(function () {
+                    resolve(2);
+                }, 6000);
+            });
+        }
+
+        function getB() {
+            console.log(22222);
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve(3);
+                }, 1000);
+            });
+        }
+
+        function addAB(a, b) {
+            return a + b
+        }
+
+        function getResult() {
+            var obj = {};
+            Promise.resolve().then(function () {
+                    return getA()
+                })
+                .then(function (a) {
+                    console.log('a', a)
+                    obj.a = a;
+                    setTimeout(()=>{
+                        console.log('llllll');
+                    },5000)
+                    return obj;
+                })
+                .then(function (lll) {
+                    console.log('66666', 'what does the fox say?');
+                    console.log('lll', lll);
+                    // setInterval(function(){
+                    //     console.log('已经过了1s')
+                    // },1000)
+                    return getB()
+                })
+                .then(function (b) {
+                    obj.b = b;
+                    console.log('b', b)
+                    return obj;
+                })
+                .then(function (obj) {
+                    return addAB(obj['a'], obj['b'])
+                })
+                .then(data => {
+                    console.log(data)
+                })
+                .catch(e => console.log(e));
+
+        }
+        getResult();
+        // a=Promise.resolve();
+        // a.then(function(){  
+        //     console.log("AAA"); 
+        //     setTimeout(function(){console.log("我是AAA后面的Timeout")},3000); 
+        //     return {'a':'jack'}
+        // })
+        // .then(function(obj){  
+        //     console.log('obj', obj);
+        //     console.log("BBB") 
+        // })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

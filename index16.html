@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>进度条</title>
+  <script>
+    // var arr = ['tom','jack','jiankuan','tom'];
+    // var obj = {};
+    // arr.forEach((item) =>{
+    //   if(obj[item] >= 0){
+    //     obj[item]++;
+    //   }else{
+    //     obj[item] = 0;
+    //   }
+    // })
+    // console.log(obj)
+    let arr = [{name:'jack',age:18},{name:'jack',age:18}];
+    let obj={flag:true}
+    arr.forEach((item)=>{
+      // item['flag'] = true;
+      Object.assign(item,obj)
+    })
+    console.log(arr)
+  </script>
+</head>
+<body>
+  <div class="steps">
+    <div class="test">
+      <span class="circle">1</span>
+      <span class="title">待评估</span>
+    </div>
+    <div class="test">
+        <span class="circle">2</span>
+        <span class="title">待评估</span>
+      </div>
+      <div class="test">
+          <span class="circle">3</span>
+          <span class="title">待评估</span>
+        </div>
+  </div>
+  <style>
+  </style>
+</body>
+</html>

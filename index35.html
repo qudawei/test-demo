@@ -1,0 +1,48 @@
+<html>
+
+<body>
+
+    <head>
+    </head>
+    <div id="scrolldiv" class="scroll">
+        <ul id="scroll1">
+            <li>用户130****0834 刚刚 砸中<span class="yellow">500元京东卡</span> 正在兑换中</li>
+            <li>用户176****2746 刚刚 砸中<span class="yellow">1000美元赠金</span> 正在兑换中</li>
+            <li>用户132****7754 刚刚 砸中<span class="yellow">500元京东卡</span> 正在兑换中</li>
+            <li>用户181****4518 1分钟前 砸中<span class="yellow">U盘+高级笔+充电宝</span> 正在兑换中</li>
+            <li>用户185****5483 1分钟前 砸中<span class="yellow">品牌热销保温杯</span> 正在兑换中</li>
+            <li>用户158****7375 2分钟前 砸中<span class="yellow">外汇交易书+高级伞+手机支架+海马刀</span> 正在兑换中</li>
+            <li>用户130****6766 3分钟前 砸中<span class="yellow">1000美元赠金</span> 已成功兑换</li>
+            <li>用户170****2437 5分钟前 砸中<span class="yellow">U盘+高级笔+充电宝</span> 已成功兑换</li>
+            <li>用户156****2475 5分钟前 砸中<span class="yellow">品牌热销保温杯</span> 已成功兑换</li>
+            <li>用户189****1698 7分钟前 砸中<span class="yellow">500元京东卡</span> 已成功兑换</li>
+            <li>用户132****1754 8分钟前 砸中<span class="yellow">1000美元赠金</span> 已成功兑换</li>
+            <li>用户177****2154 9分钟前 砸中<span class="yellow">外汇交易书+高级伞+手机支架+海马刀</span> 已成功兑换</li>
+        </ul>
+        <ul id="scroll2"></ul>
+    </div>
+    <script>
+        /**word scroll css**/
+        window.onload = roll(40);
+
+        function roll(t) {
+            var scroll1 = document.getElementById("scroll1");
+            var scroll2 = document.getElementById("scroll2");
+            var scrolldiv = document.getElementById("scrolldiv");
+            //把内容重复复制，达到滚动不间断的效果
+            scroll2.innerHTML = scroll1.innerHTML;
+            scrolldiv.scrollTop = 0;
+            setInterval(rollStart, t);
+        }
+
+        function rollStart() {
+            if (scrolldiv.scrollTop >= scroll1.scrollHeight) {
+                scrolldiv.scrollTop = 0;
+            } else {
+                scrolldiv.scrollTop++;
+            }
+        }
+    </script>
+</body>
+
+</html>

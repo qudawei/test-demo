@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .steps-content1{
+      position: relative;
+      text-align: center;
+      width: 200px;
+      margin: 10px auto;
+    }
+    .steps-content1 li{
+			list-style-type: none;
+      position: relative;
+      min-height: 100px;
+      height: auto;
+    }
+    .steps-content1 li::after{
+      width: 4px;
+      height: 100%;
+      content: "";
+      background-color: #F2F2F2;
+      display: block;
+      position: absolute;
+      top: 40px;
+      left: 30px;
+    }
+    .steps-content1 li:nth-last-child(1)::after{
+      display: none;
+    }
+    .steps-content1 li .index{
+      position: absolute;
+      left: 10px;
+      display: inline-block;
+      width: 40px;
+      height:40px;
+      line-height: 40px;
+      background: #fff;
+      border-radius: 20px;
+      border: 1px solid #5F5FFE;
+      z-index: 2;
+    }
+    .steps-content1 li .user{
+      position: relative;
+      top: 10px;
+      right: -10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .steps-content1 li .detail{
+      position: relative;
+      top: 10px;
+      margin-left: 60px;
+    }
+    .steps-content1 li .detail .item{
+      margin: 20px auto;
+      border: 1px solid #C9C9C9;
+      width: 300px;
+      height: 40px;
+      line-height: 40px;
+      text-align: left;
+      padding-left: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .steps-content1 li .detail .item .download{
+      float: right;
+      margin-right: 10px;
+      cursor: pointer;
+      font-weight: normal;
+      color: blue;
+    }
+  </style>
+  <script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+  <ul class="steps-content1">
+    <li>
+      <span class="index">1</span>
+      <span class="user">2019</span>
+      <div class="detail">
+          <div class="item">中国人民银行关于进一步加强 <span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+      </div>
+    </li>
+    <li>
+        <span class="index">2</span>
+        <span class="user">2018</span>
+        <div class="detail">
+          <div class="item">中国人民银行关于进一步加强 <span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+        </div>
+    </li>
+    <li>
+        <span class="index">3</span>
+        <span class="user">2017</span>
+        <div class="detail">
+          <div class="item">中国人民银行关于进一步加强 <span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+        </div>
+    </li>
+    <li class="active">
+        <span class="index">4</span>
+        <span class="user">2016</span>
+        <div class="detail">
+          <div class="item">中国人民银行关于进一步加强 <span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+          <div class="item">中国人民银行关于进一步加强<span class="download">下载文档</span></div>  
+        </div>
+    </li>
+  </ul>
+</body>
+
+</html>

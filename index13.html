@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="line-content">
+      <span class="out-in-line left"></span>
+      <span class="in-line"></span>
+      <span class="txt">产品清单</span>
+      <span class="in-line"></span>
+      <span class="out-in-line right"></span>
+  </div>
+  <style>
+    .line-content {
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      position: relative;
+    }
+    .line-content .in-line {
+      display: inline-block;
+      width: 80px;
+      border-top: 2px solid #0350AA ;
+      position: relative;
+      z-index: 2;
+    }
+    .line-content .out-in-line {
+      display: inline-block;
+      width: 500px;
+      border-top: 1px solid #D2CFBE ;
+      position: relative
+    }
+    .left{
+      left: 85px;
+    }
+    .right{
+      left: -85px;
+    }
+    .line-content .txt {
+      color: #686868;
+      vertical-align: middle;
+      position: relative
+    }
+  </style>
+</body>
+</html>

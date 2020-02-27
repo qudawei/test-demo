@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+			}
+			table{
+				border-collapse: collapse;
+				border: 1px solid #000;
+				width: 800px;
+				margin: 20px auto;
+			}
+			table td{
+				border: 1px solid #000;
+				height: 40px;
+				padding: 5px 10px;
+			}
+			.w100{
+				width:100px;
+				position: relative;
+			}
+			.w100 span.s1{
+				position: absolute;
+				left: 10px;
+				top: 23px;
+			}
+			.w100 span.s2{
+				position: absolute;
+				right: 10px;
+				top: 5px;
+			}
+			.w100 p{
+				width: 130px;
+				height: 1px;
+				background: red;
+				-webkit-transform: rotate(22deg);
+				-moz-transform: rotate(22deg);
+				transform: rotate(22deg);
+				position: absolute;
+				left: -5px;
+				top: 24px;
+			} 
+		</style>
+		<script type="text/javascript" src="js/jquery.js" ></script>
+	</head>
+	<body>
+		<div class="box">
+			<table>
+				<tr>
+					<td class="w100">
+						<span class="s1">姓名</span>
+						<p></p>
+						<span class="s2">月份</span>
+					</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>李丽</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>李丽1</td>
+					<td>11</td>
+					<td>22</td>
+					<td>33</td>
+				</tr>
+				<tr>
+					<td>李丽2</td>
+					<td>111</td>
+					<td>222</td>
+					<td>333</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

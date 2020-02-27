@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <style>
+        th {
+            border: 1px solid black;
+            width: 100px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <th>业务类型</th>
+                <th>课程数</th>
+                <th>课程名称</th>
+                <th>成绩</th>
+                <th>所属部门</th>
+            </thead>
+            <tbody>
+                <template v-for="(item,index) in students">
+                    <tr v-for="(m,i) in item.courses">
+                        <!-- 第1列每个学生只需要展示1次 -->
+                        <td v-if="i==0" :rowspan="item.courses.length">
+                            {{item.name}}
+                        </td>
+                        <!-- 第2列每个学生只需要展示1次 -->
+                        <td v-if="i==0" :rowspan="item.courses.length">
+                            {{item.courses.length}}
+                        </td>
+                        <td>{{m.name}}</td>
+                        <td>{{m.score}}</td>
+                        <td>{{m.dept}}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                students: [
+                    {
+                        name: '证券经纪',
+                        courses: [
+                            {
+                                name: '语文',
+                                score: '100',
+                                dept: '1部',
+                            },
+                            {
+                                name: '数学',
+                                score: '90',
+                                dept: '1部',
+                                
+                            },
+                            {
+                                name: '英语',
+                                score: '80',
+                                dept: '2部',
+                            }
+                        ]
+                    },
+                    {
+                        name: '证券承销与保荐',
+                        courses: [
+                            {
+                                name: '语文',
+                                score: '100',
+                                dept: '3部',
+
+                            },
+                            {
+                                name: '数学',
+                                score: '90',
+                                dept: '3部',
+
+                            }
+                        ]
+                    }
+                ],
+                tableBody: [{
+                    busType: "证券经纪",
+                    departArr: [{
+                            departNm: '零售-运营管理部',
+                            busArr: [{
+                                busNm: 'A股',
+                                num1: '1',
+                                num2: '2',
+                                num3: '3',
+                                num4: '4',
+                                num5: '5',
+                                num6: '6',
+                            }]
+                        }
+
+                    ],
+                }],
+            }
+        });
+    </script>
+</body>
+
+</html>

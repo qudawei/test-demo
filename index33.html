@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>defineproperty</title>
+    <script>
+        let book = {};
+        let name;
+        Object.defineProperty(book,'name',{
+            get:function(){
+                return name
+                console.log('get');
+            },
+            set:function(val){
+                name = val
+                console.log('set', val);
+            }
+        })
+        book.name = "tom"
+        console.log('book', book);
+    </script>
+</head>
+
+<body style="height:2000px">
+    <div >
+        what's does the fox say?
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>acknowledage forin</title>
+    <script>
+        var obj = {};
+        let obj2 = Object.create(obj);
+        for (const key in obj.__proto__) {
+            debugger
+                const element = obj[key];
+                console.log(key, element)
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

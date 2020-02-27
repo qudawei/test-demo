@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        const a1 = [1,2];
+        const a2 = a1;
+        a2[0] = 2;
+        console.log('a1', a1);
+        console.log('a2', a2);
+        const a3 = [1, 2, {name:'tom'}];
+        // 写法一
+        const a4 = [...a3];
+        a3[2].name = 'jack';
+        console.log('a3', a3)
+        console.log('a4', a4)
+        const a5 = Object.assign(a4)
+        console.log('a5', a5)
+
+    </script>
+    <style type="text/css">
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常见面时题</title>
+</head>
+
+<body style="height:2000px">
+    <div >
+        一天到晚游泳的鱼啊鱼不停游~~~
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+    </div>
+    <script>
+        let sumP = document.getElementsByTagName('p');
+        console.log('sumP',sumP[0]);
+        // for(var i = 0;i< sumP.length;i++){
+        //     sumP[i].onclick = function(){
+        //         alert(i);
+        //     }
+        // }
+        // for(var i = 0;i< sumP.length;i++){
+        //     (function(arg){
+        //         sumP[arg].onclick = function(){
+        //             alert(arg);
+        //         }
+        //     })(i)
+        // }
+        for(let i = 0;i< sumP.length;i++){
+            sumP[i].onclick = function(){
+                alert(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

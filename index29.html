@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>defineproperty</title>
+    <script>
+        let Book = {}
+        let name = '';
+        Object.defineProperty(Book, 'name', {
+            configurable:true,
+            set: function (value) {
+                debugger
+                name = value;
+                console.log('你取了一个书名叫做' + value);
+            },
+            get: function () {
+                return '《' + name + '》'
+            }
+        })
+        Book.name = 'vue权威指南'; // 你取了一个书名叫做vue权威指南
+        console.log(Book.name); // 《vue权威指南》
+        delete Book.name
+        console.log("delete",Book.name); // 《vue权威指南》
+
+        // var firstNm = "jack";
+        var fun1 = function(){
+            debugger
+            var firstNm = "peter";
+        }
+        fun1();
+        console.log("window",window);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
