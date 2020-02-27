@@ -1,0 +1,55 @@
+<html>
+
+<body>
+
+    <head>
+        <title>
+            what does the fox say
+        </title>
+        <style>
+                .justify-text li {
+                    margin-top: 5px;
+                    padding: 0 20px;
+                    width: 100px;
+                    height: 40px;
+                    background-color: #f66;
+                    line-height: 40px;
+                    text-align-last: justify;
+                    color: #fff;
+                }
+                .justify-text li:first-child {
+                    margin-top: 0;
+                }
+        </style>
+    </head>
+    <div class="bruce flex-ct-x">
+        <ul class="justify-text">
+            <li>账号</li>
+            <li>密码</li>
+            <li>电子邮件</li>
+            <li>通讯录</li>
+        </ul>
+    </div>
+    <script>
+    //    function copyCall(){
+
+    //    }
+    //    function showLog(){
+    //        var name = 'tom';
+    //        console.log('name1', this.name);
+    //    }
+    //    var name = "call me baby";
+    //    var obj = {
+    //        name:'我是不是你最疼爱的人？'
+    //    }
+    //    showLog.call(obj);
+    function func(param){
+        this.param = param;
+        console.log(this.param)
+    }
+    console.log(new func('jack'));
+    console.log(typeof [2,4,6].keys())
+    </script>
+</body>
+
+</html>

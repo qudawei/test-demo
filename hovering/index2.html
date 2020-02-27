@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		width: 100%;
+	}
+	.container{
+		width: 340px;
+		margin: 0 auto;
+	}
+	.wrapepr{
+		width: 100%;
+		margin: 20px auto;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+	}
+	
+	.image-box{
+		border: 5px solid #666;
+		width: 100%;
+		overflow: hidden;
+	}
+	.image-box img{
+		max-width: 100%;
+		height: auto;
+		vertical-align: middle;
+		margin-top: -1px;
+	}
+	.wrapepr:hover img {
+		transform: scale(1.1);
+	}
+	.wrapepr img {
+		transition: .5s;
+	}
+	.wrapepr:hover .text-desc {
+		opacity: 1;
+		transform: scale(1);
+	}
+	.wrapepr .text-desc{
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		transform: scale(0);
+		backface-visibility: hidden;
+		background: none;
+		padding: 40px 70px 20px;
+		transition: 0.5s;
+    	color: #000;
+	}
+	.wrapepr .text-desc:after,.wrapepr .text-desc::before {
+		background-color: #fff;
+		border-radius: 50% 50% 0 0;
+		content: "";
+		height: 100%;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		transform: rotate(-50deg);
+		transform-origin: 0 100% 0;
+		width: 50%;
+		z-index: -1;
+	}
+	.container .wrapepr .text-desc::after {
+		left: 0;
+		transform: rotate(50deg);
+		transform-origin: 100% 100% 0;
+	}
+	.btn{
+		display: inline-block;
+		padding: 5px 10px;
+		font-size: 14px;
+		color: #fff;
+		border: 2px solid #4d92d9;
+		background-color: #4d92d9;
+		text-decoration: none;
+		transition: 0.4s;
+	}
+	.btn:hover {
+		background-color: transparent;
+		color: #4d92d9;
+		transition: 0.4s;
+	}
+	p{
+		font-weight: 300;
+		line-height: 20px;
+		font-size: 14px;
+		margin-bottom: 15px;
+	}
+	h3 {
+		font-size: 20px;
+		margin: 5px 0 10px;
+	}
+</style>
+<body>
+	<div class="container">
+		<div class="wrapepr">
+			<div class="image-box">
+				<img src="images/img-2.jpg" alt="Image-3">
+			</div>
+			<div class="text-desc">
+				<h3>Your Title</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+				<a href="#" class="btn">Learn more</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
