@@ -1,0 +1,83 @@
+<html>
+
+<body>
+
+    <head>
+        <title>what does the fox say</title>
+        <style>
+            .scroll{
+                width: 200px;
+                height: 500px;
+                margin: 0 auto;
+                overflow-y: scroll;
+            }
+        </style>
+    </head>
+    <div id="scrolldiv" class="scroll">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>6</p>
+        <p>7</p>
+        <p>8</p>
+        <p>9</p>
+        <p>10</p>
+        <p>11</p>
+        <p>12</p>
+        <p>13</p>
+        <p>14</p>
+        <p>15</p>
+        <p>16</p>
+        <p>17</p>
+        <p>18</p>
+        <p>19</p>
+    </div>
+    <script>
+         var throttle = function(func, delay) {
+            var timer = null;
+            return function() {
+                var context = this;
+                var args = arguments;
+                if (!timer) {
+                    timer = setTimeout(function() {
+                        func.apply(context, args);
+                        timer = null;
+                    }, delay);
+                }
+            }
+        }
+        function handle() {
+            console.log(Math.random());
+        }
+        // 滚动事件
+        document.getElementById("scrolldiv").addEventListener('scroll', throttle(handle, 1000));
+
+
+
+        // var throttle = function(func, delay) {
+        // var timer = null;
+        // var startTime = Date.now();
+        // return function() {
+        //     var curTime = Date.now();
+        //     var remaining = delay - (curTime - startTime);
+        //     var context = this;
+        //     var args = arguments;
+        //     clearTimeout(timer);
+        //     if (remaining <= 0) {
+        //             func.apply(context, args);
+        //             startTime = Date.now();
+        //     } else {
+        //             timer = setTimeout(func, remaining);
+        //     }
+        //     }
+        // }
+        // function handle() {
+        //     console.log(Math.random());
+        // }
+        // window.addEventListener('scroll', throttle(handle, 1000));
+    </script>
+</body>
+
+</html>
