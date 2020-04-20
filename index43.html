@@ -1,0 +1,21 @@
+<html>
+
+    <body>
+        <input id="year" type="text" placeholder="请输入工作年限">
+        <input id="salary" type="text" placeholder="请输入月薪">
+        <span id="result"></span>
+        <button id="cal" type="button">计算</button>
+        <script>
+            var result = document.getElementById("result");
+            document.getElementById("cal").onclick = function () {
+                var year = document.getElementById("year").value;
+                var salary = document.getElementById("salary").value;
+                console.log('salary', salary);
+                console.log('year', year);
+                result.innerHTML=year+salary
+            }
+        
+        </script>
+        </body>
+
+</html>

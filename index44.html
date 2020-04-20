@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .col {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            display: inline-block;
+        }
+
+        .row {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div class="row" v-for='(item, idx) in dd'>
+            <div class="col" v-for='it in item' @click='show(idx, it, $event)'>
+                <span style="background: red;display: inline-block;width: 100%;height: 100%;" v-if='it.flag'>{{it.id}}</span>
+                <span style="display: inline-block;width: 100%;height: 100%;" v-if='!(it.flag)'>{{it.id}}</span>
+            </div>
+        </div>
+        <button @click='save'>保存</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: function () {
+                return {
+                    dd: [
+                        [{ id: 11, flag: false }, { id: 12, flag: false }, { id: 13, flag: false }, { id: 14, flag: false }, { id: 15, flag: false }, { id: 16, flag: false }, { id: 17, flag: false }],
+                        [{ id: 21, flag: false }, { id: 22, flag: false }, { id: 23, flag: false }, { id: 24, flag: false }, { id: 25, flag: false }, { id: 26, flag: false }, { id: 27, flag: false }]
+                    ]
+                }
+            },
+            methods: {
+                show(item, it, e) {
+                    e = e || event;
+                    var arr = this.dd[item];
+                    var ff = this._getId(arr, it.id);
+                    var index = this._getIndex(arr, it.id);
+
+                    if (e.shiftKey) {
+                        var min = this._getMin(arr, index);
+                        if(min || min == 0) {
+                            for (var k = min + 1; k <= index; k++) {
+                                this.dd[item][k].flag = !ff;
+                            }
+                        }else{
+                            alert('请先在之前选择一个点作为起始点！');
+                        }
+                    } else {
+                        this.dd[item][index].flag = !ff;
+                    }
+                },
+                _getId(arr, it) {
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].id == it) {
+                            return arr[i].flag;
+                        }
+                    }
+                },
+                _getMin(arr, item) {
+                    var temp = [];
+                    for (var a = 0; a < item; a++) {
+                       if(arr[a].flag){
+                           temp.push(a);
+                       }
+                    }
+                    if(temp && temp.length>0) {
+                        var maxNum = Math.max(...temp);
+                        return maxNum;
+                    }else{
+                        return null;
+                    }
+                },
+                _getIndex(arr, it) {
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i].id == it) {
+                            return i;
+                        }
+                    }
+                },
+                save() {
+                    console.log(this.dd)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
