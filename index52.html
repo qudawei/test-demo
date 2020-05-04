@@ -1,0 +1,40 @@
+<html>
+
+<body>
+
+    <head>
+        <title>test51</title>
+    </head>
+    <script>
+        // 普通单例模式
+        var singleton = {
+            name: "percy",
+            speak: function () {
+                console.log("speaking!!!");
+            },
+            getName: function () {
+                return this.name;
+            }
+        };
+        console.log('singleton', singleton);
+        var singleton2 = (function () {
+
+            // 私有变量
+            var age = 22;
+            var speak = function () {
+                console.log("speaking!!!");
+            };
+
+            // 特权（或公有）属性和方法
+            return {
+                name: "percy",
+                getAge: function () {
+                    return age;
+                }
+            };
+        })();
+        console.log('singleton', singleton2);
+    </script>
+</body>
+
+</html>

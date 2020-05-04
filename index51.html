@@ -1,0 +1,20 @@
+<html>
+
+<body>
+
+    <head>
+       <title>test51</title>
+    </head>
+    <script>
+        function Pig(name, age){
+            this.name = name;
+            this.age = age;
+        }
+        let Peppa = new Pig('Peppa',10);
+        console.log("peppa", Peppa);
+        console.log("test1",Peppa._proto_ === Pig.prototype)
+        console.log("age",Peppa._proto_)
+    </script>
+</body>
+
+</html>

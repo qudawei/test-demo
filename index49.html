@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图形验证码</title>
+</head>
+<body>
+</body>
+<script>
+    var obj = {
+        name:'jack',
+        writable:false,
+        get age(){
+            console.log('get')
+            return '111'
+        },
+        set age(param){
+            this.name = param
+            console.log('set')
+        }
+    }
+    obj.name = "tom"
+    console.log(obj.name);
+    let name1 = obj.age; 
+    obj.age = "name2"
+    console.log('name',name1)
+</script>
+</html>
+
+
+ 
+
