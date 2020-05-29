@@ -1,0 +1,64 @@
+<html>
+
+<body>
+
+    <head>
+        <title>test56</title>
+    </head>
+    <script>
+        let industry_list = [{
+                "parent_ind": "女装",
+                "name": "连衣裙"
+            },
+            {
+                "name": "女装"
+            },
+            {
+                "parent_ind": "女装",
+                "name": "半身裙"
+            },
+            {
+                "parent_ind": "女装",
+                "name": "A字裙"
+            },
+            {
+                "name": "数码"
+            },
+            {
+                "parent_ind": "数码",
+                "name": "电脑配件"
+            },
+            {
+                "parent_ind": "电脑配件",
+                "name": "内存"
+            },
+        ]
+        function convert_format(data) {
+            let result = {};
+            for (const key in data) {
+                // 先寻找两个父级
+                if(!data[key].parent_ind){
+                    result[data[key].name] =  forChildren(data, data[key].name)
+                }
+            }
+            return result;
+        }
+
+        function forChildren(data, pid) {
+            let children = {};
+            for (const key in data) {
+                if(data[key].parent_ind == pid){
+                    let key1 = data[key].name;
+                    delete data[key]
+                    children[key1] = forChildren(data, key1);
+                }
+            }
+            console.log('children', children);
+            return children;
+        }
+        let result = convert_format(industry_list)
+        console.log(result)
+    </script>
+</body>
+
+</html>

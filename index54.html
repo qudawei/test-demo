@@ -1,0 +1,41 @@
+<html>
+
+<body>
+
+    <head>
+        <title>test54</title>
+    </head>
+    <script>
+        let fun = function(){
+            let obj = {
+                name:'jack',
+                methods:'callmebaby'
+            }
+            let arrow = ()=>{
+                console.log('this', this == window)
+            }
+            arrow();
+        }
+        fun()
+        function greet () {
+            console.log(`Hello, my name is ${this.name}`)
+        }
+
+        const user = {
+            name: 'Tyler',
+            age: 27,
+        }
+        greet.call(user)
+        var count = 0;
+        function fn() {
+            this.count++;
+        }
+        fn.count = 0;
+        fn();
+        fn();
+        console.log(fn.prototype);// 0
+        console.log('count',count);// 0
+    </script>
+</body>
+
+</html>
