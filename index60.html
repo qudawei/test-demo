@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>节流函数</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            debugger
+            let box = document.getElementsByClassName('box')[0];
+            box.onmousemove = debounce(move, 1000);
+            function move(ev){
+                console.log(ev, this)
+                this.innerHTML = ev.clientX;
+            }
+            function debounce(fn, wait){
+                let timer = null;
+                return function(){
+                    var args = arguments;
+                    timer && clearTimeout(timer);
+                    timer = setTimeout(() =>{
+                        fn.apply(this, args)
+                    },wait)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
