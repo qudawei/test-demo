@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>防抖函数</title>
+    <title>节流函数</title>
     <style>
         *{
             padding: 0;
@@ -19,27 +19,31 @@
     <script>
         window.onload = function(){
             let box = document.getElementsByClassName('box')[0];
-            box.onmousemove = debounce(move, 1000);
+            box.onmousemove = jl(move, 1000);
             function move(ev){
-                console.log(ev, this)
+                console.log(111);
                 this.innerHTML = ev.clientX;
             }
-            function debounce(fn, wait){
-                let timer = null;
-                debugger
+            function jl(fn, wait){
+                let last = 0;
                 return function(){
                     let args = arguments;
-                    timer && clearTimeout(timer);
-                    let now = !timer;
-                    timer = setTimeout(() =>{
-                        timer = null;
-                    },wait)
-                    // 此处涉及异步执行
-                    if(now){
+                    let now = Date.now();
+                    if(now - last > wait){
                         fn.apply(this, args)
+                        last = now;
                     }
                 }
             }
+            switch(1){
+                case 1:
+                    console.log(111);
+                    return ;
+                default:
+                console.log('default');
+
+            }
+            console.log('11111');
         }
     </script>
 </head>

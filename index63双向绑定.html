@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <script src="./js/myVue2.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+        <div>{{message}}</div>
+        <input type="text" v-model="test">{{test}}
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:'david',
+            message:'我是不是你最疼爱的人？',
+            test:"双向绑定数据"
+        }
+    })
+</script>
+</html>
