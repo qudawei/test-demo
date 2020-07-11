@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>原型继承</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            color: red;
+        }
+    </style>
+    <script>
+        function Dad(name, age, height){
+            this.name = name;
+            this.age = age;
+            this.height = height;
+        }
+        Dad.prototype = {
+            dadySay:function(){
+                console.log(this.height);
+            }
+        }
+        function Son(height){
+            Dad.call(this,height)
+        }
+        Son.prototype = Dad.prototype;
+        Son.prototype.name = 'jack';
+        let son1 = new Son(178);
+        son1.dadySay();
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        原型继承中 将父亲原型给孩子（传址赋值），孩子原型修改后，直接影响父亲原型数据
+    </div>
+</body>
+
+</html>

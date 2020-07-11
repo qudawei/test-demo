@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>继承</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            color: red;
+        }
+    </style>
+    <script>
+        function Dad(name, age, height){
+            this.name = name;
+            this.age = age;
+            this.height = height;
+        }
+        Dad.prototype.name = 'Dad'
+        function Son(height){
+            // 一下几种方式不能拿到原型上属性方法
+            // Dad.call(this,height)
+            Dad.bind(this,height)()
+            // Dad.apply(this,[height])
+        }
+        let son1 = new Son(178);
+        console.log('son1', son1);
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
