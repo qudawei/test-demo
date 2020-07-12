@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>组合继承</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            color: red;
+        }
+    </style>
+    <script>
+        class Drag{
+            constructor(){}
+            static name = "张三"
+            hobby(){
+                console.log("我是不是你最疼爱的人？")
+            }
+            static hello(){
+                console.log('hello',11111111);
+            }
+        }
+        console.log(Drag.name)
+        let  drag = new Drag();
+        console.log('drag', drag.name);
+        drag.hobby()
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        es6 继承 本质仍然是函数，通过原型链继承
+        es6中 类可以直接访问静态变量，静态方法，对象不能访问静态变量和静态方法
+
+    </div>
+</body>
+
+</html>
