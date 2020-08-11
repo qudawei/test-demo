@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+    <title>表头锁定</title>
+</head>
+<style>
+.myTable tbody {
+	display:block;
+	height:250px;
+	width:900px;
+	overflow-y:scroll;
+	text-align: center;
+}
+ 
+.myTable thead, tbody tr {
+	display:table;
+	width:900px;
+	table-layout:fixed;
+}
+ 
+.myTable thead {
+	background: #E4E8F3;
+    color: black;
+}
+.myTable thead tr th{
+	text-align: center;
+}
+</style>
+<body>
+        <div id="div_1" style="padding: 1px 15px 15px 15px;margin-top: 50px; ">
+				<table class="myTable"  id="nav_tab" border="1">
+                <thead >
+                    <tr>
+                    	<th >头字段1</th>
+                    	<th >头字段2</th>
+                    	<th >头字段3</th>
+                    	<th >头字段4</th>
+                    	<th >头字段5</th>
+                </thead>			
+					<tbody id="nav_tab_tbd">
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>88888</td><td>88888</td><td>88888</td><td>88888</td><td>88888</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>99999</td><td>99999</td><td>99999</td><td>99999</td><td>99999</td></tr>
+							<tr><td>22222</td><td>22222</td><td>22222</td><td>22222</td><td>22222</td></tr>
+							<tr><td>22222</td><td>22222</td><td>22222</td><td>22222</td><td>22222</td></tr>
+					</tbody>
+ 
+				</table>
+        </div>
+</body>
+</html>
