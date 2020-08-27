@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则方法</title>
+</head>
+<body>
+    <script>
+    //正则方法 1.test 2.exec
+    //test 返回true false
+    function fir(){
+        let reg = /\d+/;
+        let str = "dfsdfsdfdfd";
+        let flag = reg.test(str);
+        console.log('flag', flag);
+    }   
+    //exec 返回字符串数组
+    function sec(){
+        let reg = /\d+/;
+        let str = "dfsdfsdf1111dfd";
+        let flag = reg.exec(str);
+        console.log('flag', flag);
+    }     
+    //字符串方法 split replace search(找到匹配符合结果的索引值位置，找不到返还-1) match（返回数组） 皆可传入正则进行匹配
+    //replace
+    function rec(){
+        let str = '中国经济周刊-经济网讯 8月26日，中国工程院院士院士、杂交水稻之父袁隆平应邀接受媒体采访。他表示，过去认为高产优质是一对矛盾，“优质不高产，高产不优质”，这个观点要纠正了。虽然既高产、又优质难度比较大，但是通过科技进步，现在我们做到了既高产又优质。';
+        let reg = /水稻|院士/g
+        // let newStr = str.replace(reg,'*')
+        let newStr = str.replace(reg,function(args){
+            return '*'.repeat(args.length);
+        })
+        console.log('newStr', newStr);
+    }
+    rec();
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first 正则</title>
+</head>
+<body>
+    <script>
+       //第一种创建正则方式
+       function firstFun(){
+            // \d数字 +：一次或多次
+            let str = "1111111111sdfdfsdsdw132ease4wer342";
+            let reg = /\d+/g;
+            let res = str.match(reg);
+            console.log(reg, res);
+        }
+        //第二种创建正则方式
+       function secFun(){
+            // \d数字 +：一次或多次
+            let str = "1111111111sdfdfsdsdw132ease4wer342";
+            let principle = '\\d+';
+            let principle2 = 'sd';
+            let reg = new RegExp(principle2, 'g')//全局匹配
+            let res = str.match(reg);
+            console.log(reg, res);
+        }
+        secFun();
+    </script>
+</body>
+</html>

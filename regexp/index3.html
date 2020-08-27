@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元字符</title>
+    <script>
+        // . * + ? $ ^  | \ () [] {};
+        // .匹配除了 \n \r \u2028 或 \u2029意外所有的字符
+        function dots(){
+            let str = `<div>..我是不是你最疼爱的人你为什么不说话？</div>`
+            let reg = /<div>.*<\/div>/g;
+            let res = str.match(reg);
+            console.log(res);
+        }
+        dots();
+    </script>
+</head>
+<body>  
+    
+</body>
+</html>
