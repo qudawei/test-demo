@@ -13,7 +13,62 @@
             let res = str.match(reg);
             console.log(res);
         }
-        dots();
+        // dots();
+        function startEnd(){
+            let str = 'cgderihjdisfijifggg';
+            let reg = /^c\w+g$/g;//c开头，g结尾 \w数字字母下划线 （.*）分组
+            let res = str.match(reg);
+            console.log('res', res);
+        }
+        //字符集合【】
+        function startkuohao(){
+            let str = 'this knife is 5 km';
+            // let reg = /f|h/g
+            // let reg2 = /[0-9]+/g
+            // let reg = /[^fh]/g //[]表示或 ^表示除了什么以外
+            let reg = /[kKCc]?[Mm]/ //？0次或1次
+            let res = str.replace(reg,'米');
+            console.log('res', res);
+        }
+        // \b非/w===> [a-zA-Z_0-9]都被称为边界
+        function binajie(){
+            let str = 'this is the lifg';
+            // let reg = /\bis\b/g;
+            let reg = new RegExp("\\bis\\b",'g') //构造函数写法需要加斜线转义
+            let res = str.match(reg);
+            console.log('res', res)
+
+        }
+        // （）分组
+        // ？0-1次{0,1} + 1-多次{1,} * 0-多次{0,} {2} 指定两次
+        function groupby(){
+            let str = 'my name is lilei';
+            let reg = /(l|L)i(l|L)ei/g
+            let res = str.replace(reg,'李雷');
+            console.log('res', res)
+
+        }
+        // 反向引用  需要先分组
+        // 例2019-10-10 转为 10/10/2019
+        function backQuote(){
+            let str = '2019-10-10';
+            let reg = /(\d{4})-(\d{1,2})-(\d{1,2})/g
+            let res = str.replace(reg,'$3/$2/$1');
+            console.log('res', res)
+            console.log('regexp', RegExp.$1)
+        }
+        // 零宽断言 
+        function  assert(){
+            let str = 'iphone3iphone4iphone11iphoneNumber';
+            let reg = /iphone\d{1,2}/g //此正则替换，将后面的数字一并替换不是所想要的结果
+            //肯定断言 ?=
+            let res = str.replace(reg,'苹果');
+            let reg2 = /iphone(?=\d{1,2})/g 
+            let res2 = str.replace(reg2,'苹果');
+            console.log('res', res)
+            console.log('reg2', res2)
+        }
+        assert();
     </script>
 </head>
 <body>  
