@@ -1,0 +1,9 @@
+git 四种状态
+    1.已修改（modified）
+    2.已暂存（staged）
+    3.已提交（commited）
+    4.未追踪（untracked）
+git 三个不同工作区
+    1.工作目录
+    2.暂存区间
+    3.git仓库
