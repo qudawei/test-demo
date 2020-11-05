@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>js中的点击事件（click）的实现方式</title>
+</head>
+<body>
+    <!-- 第三种方式-->
+    <button id="btn" onclick="clos1e()">clos1e</button>
+    <button  onclick="open2()">open</button>
+
+    <script type="text/javascript">
+        let o = {
+            get a(){
+                console.log(1)
+            },
+            set a(params){
+                console.log(2)
+            }
+
+        } 
+        let b = o.a;
+        o.a = 3;
+        var btn = document.getElementById("btn");
+
+        // 第一种 通过点击事件
+        // btn.onclick = function(){
+        //     alert("这是第一种点击方式");
+        //     console.log('close');
+        //     open(location, '_self').close()
+        //     window.close();
+        // }
+
+        // // 第二种 监听点击事件
+        // btn.addEventListener('click', function(){
+        //     alert("这是第二中点击方式");
+        // })
+
+        // // 第三种 通过方法响应点击事件
+        // function threeFn(){
+        //     alert("这是第三种点击方式");
+        // }
+        function clos1e() {
+            console.log(11);
+            open(location, '_self').close()
+            window.close();
+
+        }
+        function open2(){
+            console.log(1111);
+            var win = window.open("myjq.html", "_blank");
+            // window.open("http://www.baidu.com/", "_blank");
+        }
+    </script>
+</body>
+</html>
