@@ -1,0 +1,31 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+<html>
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>渲染</title>
+</head>
+<style>
+</style>
+
+<body>
+	<script>
+		function parent() {
+			for (var i = 0; i < 10000; i++) {
+				childA()
+			}
+		}
+
+		function childA(j) {
+			for (var i = 0; i < j; i++) {}
+		}
+
+		console.profile('性能分析');
+		parent();
+		console.profileEnd();
+	</script>
+</body>
+
+</html>
