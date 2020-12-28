@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>defineProperty</title>
+</head>
+<body>
+<script>
+    const obj = {};
+    Object.defineProperty(obj,'hello',{
+        get(value){
+            console.log("啦啦啦，方法被调用了");
+        },
+        set(newVal,oldVal){
+            console.log("set方法被调用了，新的值为" + newVal)
+        }
+    })
+    const property1 = {};
+    Object.defineProperty(obj,'property1',{
+        get(value){
+            console.log("啦啦啦，方法被调用了");
+        },
+        set(newVal,oldVal){
+            console.log("set方法被调用了，新的值为" + JSON.stringify(newVal) )
+        }
+    })
+    // obj.hello; //get方法被调用了
+    // obj.hello = "1234"; //set方法被调用了
+    obj.property1;
+    obj.property1 = {a:1};
+
+</script>    
+</body>
+</html>
