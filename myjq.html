@@ -22,6 +22,8 @@
 </head>
 
 <body>
+    
+    <button id="btn" onclick="clos1e()">clos1e</button>
     <div class="box1"></div>
     <div class="box2"></div>
 </body>
@@ -64,21 +66,11 @@
 // $("div").css("opacity",0.5);
 // $("div").css({"width":"200px","height":"200px"});
 
-$.cssHooks['wh'] = {
-    get(ele){
-        console.log(ele);
-        return ele.offsetWidth + " " + ele.offsetHeight;
-    },
-    set(ele,value){
-        ele.style.width = value;
-        ele.style.height = value;
-    }
-}
-// let res = $("div").css("wh");
-// console.log(res);
+function clos1e() {
+    console.log(11);
+    window.close();
 
-$("div").css("wh","200px");
-$(document.querySelector('.box1'));
+}
 
 </script>
 </html>

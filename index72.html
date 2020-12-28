@@ -1,0 +1,50 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+    <title>表头锁定</title>
+</head>
+<style>
+.table-head{padding-right:17px;background-color:#999;color:#000;}
+.table-head table,.table-body table{width:100%;}
+.table-body table tr:nth-child(2n+1){background-color:#f2f2f2;}
+</style>
+<body>
+	<div style="width: 800px;">
+		<div class="table-body">
+			<table >
+				<tr>
+					<td rowspan="12">管理结构</td>
+					<td colspan="2">法定代表人</td>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td rowspan="11" colspan="1">股权结构</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>股东名称</td>
+					<td>持股比例</td>
+				</tr>
+				<tr>
+					<td>股东1</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>股东2</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>股东3</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
