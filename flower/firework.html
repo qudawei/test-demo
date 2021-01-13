@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="Keywords" content="" />
+  <meta name="Description" content="" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="author" content="Ander" />
+  <title>我就是我，颜色不一样的烟火</title>
+  <style>
+    html,body{margin:0;padding:0;overflow:hidden;}
+    body{background:#000;cursor:crosshair;}
+  </style>
+ </head>
+ <body>
+   <canvas></canvas>
+   <script>
+     var ua=navigator.userAgent.toLowerCase(),
+     bgimg=(ua.indexOf('iphone')!=-1||ua.indexOf('ipad')!=-1||ua.indexOf('ipod')!=-1)?"images/firework_1_bg.jpg":"images/firework_bg.jpg";
+   </script>
+   <script src="js/firework.js"></script>
+ </body>
+</html>

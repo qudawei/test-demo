@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>table</title>
+</head>
+<style>
+  /*外层容器设置高*/
+  #elec_table {
+    position: relative;
+    height: 600px;
+    table-layout: fixed;
+  }
+
+  .bodyBox {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 570px;
+  }
+
+  /*设置table-layout:fixed固定宽度，表头和表体需要对齐*/
+  table {
+    table-layout: fixed;
+  }
+
+  /*设置单元格的宽度，可能会出现内容长需要换行的情况 使用white-space:normal，每个单元格都是一样的宽度*/
+  #elec_table td {
+    width: 20%;
+    white-space: normal;
+  }
+</style>
+
+<body>
+  <div id="elec_table">
+    <div class="table-head">
+      <table>
+        <tr>
+          <td>姓名</td>
+          <td>用途</td>
+        </tr>
+      </table>
+    </div>
+    <div class="table-body">
+      <table>
+        <tr>
+          <td>1</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>我只是用来测试的</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>我只是用来测试的</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
