@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>节流函数</title>
+    <title>防抖函数</title>
     <style>
         *{
             padding: 0;
@@ -19,36 +19,33 @@
     <script>
         window.onload = function(){
             let box = document.getElementsByClassName('box')[0];
-            box.onmousemove = jl(move, 1000);
+            box.onmousemove = debounce(move, 1000);
             function move(ev){
-                console.log(111);
+                console.log(ev, this)
                 this.innerHTML = ev.clientX;
             }
-            function jl(fn, wait){
-                let last = 0;
+            function debounce(fn, wait){
+                debugger
+                let timer = null;
                 return function(){
                     let args = arguments;
-                    let now = Date.now();
-                    if(now - last > wait){
+                    timer && clearTimeout(timer);
+                    let now = !timer;
+                    timer = setTimeout(() =>{
+                        timer = null;
+                    },wait)
+                    // 此处涉及异步执行
+                    if(now){
                         fn.apply(this, args)
-                        last = now;
                     }
                 }
             }
-            switch(1){
-                case 1:
-                    console.log(111);
-                    return ;
-                default:
-                console.log('default');
-
-            }
-            console.log('11111');
         }
     </script>
 </head>
 
 <body>
+    <div style="font-weight: bold;">作用是在短时间内多次触发同一个函数，只执行最后一次，或者只在开始时执行。</div>
     <div class="box"></div>
 </body>
 
