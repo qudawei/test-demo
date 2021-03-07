@@ -3,43 +3,46 @@
 
 <head>
   <meta charset="utf-8">
-  <title> a标签</title>
+  <title>圣杯test</title>
 </head>
 <style>
     *{
       margin: 0;
       padding: 0;
     }
-    body{
-      overflow: hidden;
+    .container{
+      padding: 0 150px 0 200px;
+      height: 100px;
     }
-    table{
+    .container > div{
+      height: 100px;
+      float: left;
+      position: relative;
+    }
+    .center{
       width: 100%;
+      background: yellowgreen;
     }
-    a{
-      color: grey;
+    .left{
+      right: 200px;
+      width: 200px;
+      background: green;
+      margin-left: -100%;
     }
-    a:hover{
-      color: red;
-    }
-    a:active{
-      color: lightblue;
-    }
-    a:visited{
-      color: yellow;
+    .right{
+      margin-right: -150px;
+      width: 150px;
+      background: lightblue;
+
     }
 </style>
 
 <body>
-  <div>
-    <a href="https://www.w3school.com.cn">W3School</a>
-    <button onclick="test()">test</button>
+  <div class="container">
+    <div class="center"></div>
+    <div class="left"></div>
+    <div class="right"></div>
   </div>
-  <script>
-    function test(){
-      alert(1)
-    }
-  </script>
 </body>
 
 </html>

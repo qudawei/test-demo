@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>事件冒泡事件捕获</title>
+	<style>
+		#header {
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- 
+		若只点击父元素，捕获与冒泡顺序与代码顺序有关
+		若点击子元素则父元素先捕获再冒泡，子元素冒泡与捕获顺序与代码有关
+	-->
+	<div>
+		<div id="parent">
+			父元素
+			<div id="child">子元素</div>
+		</div>
+	</div>
+	<script>
+		var parent = document.getElementById('parent');
+		var child = document.getElementById('child');
+
+		// 通过 addEventListener 指定事件的绑定
+		// 第三个参数 true / false 分別代表 捕获/ 冒泡 机制
+
+		parent.addEventListener('click', function () {
+			console.log('Parent Bubbling');
+		}, false);
+		parent.addEventListener('click', function () {
+			console.log('Parent Capturing');
+		}, true);
+
+
+		child.addEventListener('click', function () {
+			console.log('Child Capturing');
+		}, true);
+
+		child.addEventListener('click', function () {
+			console.log('Child Bubbling');
+		}, false);
+	</script>
+</body>
+
+</html>

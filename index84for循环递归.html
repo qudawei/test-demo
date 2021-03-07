@@ -4,9 +4,50 @@
 <head>
   <meta charset="utf-8">
   <title> index84for循环递归</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .main > div{
+      height: 100px;
+      float: left;
+    }
+    .fl{
+      float: left;
+    }
+    .fr{
+      float: right;
+    }
+    .middle{
+      width: 100%;
+      background: lightblue;
+    }
+    .content{
+      
+      margin: 0 200px;
+    }
+    .right{
+      width: 200px;
+      background: yellowgreen;
+      margin-left: -200px;
+    }
+    .left{
+      width: 200px;
+      background: green;
+      margin-left: -100%;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="main">
+    <div class="middle">
+      <div class="content"></div>
+    </div>
+    <div class="left fl"></div>
+    <div class="right fl"></div>
+  </div>
   <script>
     function test(){
       for(var i = 0;i < 10;i++){

@@ -9,23 +9,36 @@
 </head>
 
 <body>
-    111111111
+    <!-- 111111111
     <div id="app">
         1
         <input type="text" v-model="text" />
-    </div>
+    </div> -->
+    <ul id="list"></ul>
     <script>
-        const app = document.getElementById("app");
-        const nodetoFragment = (node) => {
-            debugger
-            const flag = document.createDocumentFragment();
-            let child;
-            while (child = node.firstChild) {
-                flag.appendChild(child);//不断劫持挂载元素下的所有dom节点到创建的DocumentFragment
-            }
-            return flag
-        }
-        const dom = nodetoFragment(app);
+        // const app = document.getElementById("app");
+        // const nodetoFragment = (node) => {
+        //     debugger
+        //     const flag = document.createDocumentFragment();
+        //     let child;
+        //     while (child = node.firstChild) {
+        //         flag.appendChild(child);//不断劫持挂载元素下的所有dom节点到创建的DocumentFragment
+        //     }
+        //     return flag
+        // }
+        // const dom = nodetoFragment(app);
+        // console.log('dom', dom);
+        const list = document.querySelector('#list');
+        const fruits = ['Apple', 'Orange', 'Banana', 'Melon'];
+
+        const fragment = document.createDocumentFragment();
+        fruits.forEach(fruit => {
+            const li = document.createElement('li');
+            li.innerHTML = fruit;
+            fragment.appendChild(li);
+        });
+
+        list.appendChild(fragment);
     </script>
 </body>
 

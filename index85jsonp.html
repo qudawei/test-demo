@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index85jsonp</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="div" style="display: none;"></div>
+  <iframe id="iframe" src="http://www.domain1.com/c.html" style="display:none;"></iframe>
+  <script>
+    var div = document.getElementById('div');
+    var iframe = document.getElementById('iframe');
+    console.log('iframe', iframe);
+    console.log('div', div);
+    // 监听a.html传来的hash值，再传给c.html
+    window.onhashchange = function () {
+      iframe.src = iframe.src + location.hash;
+    };
+  </script>
+  <!-- <script>
+     var script = document.createElement('script');
+      script.type = 'text/javascript';
+
+      // 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数
+      script.src = 'http://www.domain2.com:8080/login?user=admin&callback=handleCallback';
+      document.head.appendChild(script);
+
+      // 回调执行函数
+      function handleCallback(res) {
+          alert(JSON.stringify(res));
+      }
+  </script> -->
+</body>
+
+</html>

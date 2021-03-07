@@ -1,0 +1,29 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<title>事件冒泡事件捕获</title>
+	<style>
+		#header {
+			background-color: black;
+			color: white;
+			text-align: center;
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		let arr = ['i','l','o','v','e','y','o','u'];
+		function add(x, y){
+			return x+y;
+		}
+		let newarr = arr.reduce(add);
+		console.log('newarr', newarr);
+	</script>
+</body>
+
+</html>
