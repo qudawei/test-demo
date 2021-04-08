@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index97尾调用</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <script>
+    // 尾递归只存在一个调用帧中，不会出现内存溢出 
+    // function factorial(n) {
+    //   debugger
+    //   if (n === 1) return 1;
+    //   return n * factorial(n - 1);
+    // }
+
+    // factorial(5) // 120
+    // function factorial(n, total) {
+    //   debugger
+    //   if (n === 1) return total;
+    //   return factorial(n - 1, n * total);
+    // }
+
+    // factorial(5, 1) // 120
+
+    // 第二种方法就简单多了，就是采用 ES6 的函数默认值。
+    function factorial(n, total = 1) {
+      debugger
+      if (n === 1) return total;
+      return factorial(n - 1, n * total);
+    }
+
+    factorial(5) // 120
+  </script>
+</body>
+
+</html>

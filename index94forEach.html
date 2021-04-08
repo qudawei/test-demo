@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div id="lll"></div>
   <script type="module">
     import module from './js/module.js'
     // let data = [1,2,3,4,5,6]
@@ -38,6 +39,17 @@
     let bbbbbbbbb = 2222
     console.log(this);
     console.log('self', self);
+    let data = [1,2,3,4,5]
+    let template = `
+    <ul>
+      <% for(let i=0; i < data.length; i++) { %>
+        <li><%= data[i] %></li>
+      <% } %>
+    </ul>
+    `;
+    let lll = document.getElementById('lll');
+    lll.append(template);
+    console.log('template', template);
   </script>
 
 </body>
