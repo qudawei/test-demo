@@ -9,25 +9,106 @@
 <body>
     <div class="box"></div>
     <script>
-        let data = {
-            name:'lili',
-            age:20,
-        }
-        let p = new Proxy(data,{
-            get(target,prop){
-                console.log('get',target,prop);
-                return Reflect.get(...arguments)
-            },
-            set(target,prop,newVal){
-                console.log('set',target,prop,newVal);
-                return Reflect.set(...arguments)
+        function test1(){
+            let data = {
+                name:'lili',
+                age:20,
             }
-        })
-        let box = document.querySelector('.box');
-        p.age = 21;
-        console.log('age', p.age);
-        console.log('box', box);
-        box.innerHTML = p.age;
+            let p = new Proxy(data,{
+                get(target,prop){
+                    console.log('get',target,prop);
+                    return Reflect.get(...arguments)
+                },
+                set(target,prop,newVal){
+                    console.log('set',target,prop,newVal);
+                    return Reflect.set(...arguments)
+                }
+            })
+            let box = document.querySelector('.box');
+            p.age = 21;
+            console.log('age', p.age);
+            console.log('box', box);
+            box.innerHTML = p.age;
+        }
+        function test2(){
+            let proxy = new Proxy({}, {
+                get: function(target, propKey) {
+                    return 35;
+                }
+            });
+
+            let num = proxy.time // 35
+            proxy.name // 35
+            proxy.title // 35
+            console.log(num, proxy);
+        }
+        function test3(){
+            var handler = {
+                get: function(target, name) {
+                    if (name === 'prototype') {
+                    return Object.prototype;
+                    }
+                    return 'Hello, ' + name;
+                },
+
+                apply: function(target, thisBinding, args) {
+                    return args[0];
+                },
+                construct: function(target, args) {
+                    return {value: args[1]};
+                }
+            };
+
+            var fproxy = new Proxy(function(x, y) {
+                return x + y;
+            }, handler);
+
+            fproxy(1, 2) // 1
+            new fproxy(1, 2) // {value: 2}
+            fproxy.prototype === Object.prototype // true
+            fproxy.foo === "Hello, foo" // true
+            console.log('fproxy.foo', fproxy.foo);
+        }
+        function test4(){
+            var person = {
+                name: "张三"
+            };
+
+            var proxy = new Proxy(person, {
+            get: function(target, propKey, obj) {
+                debugger
+                if (propKey in target) {
+                return target[propKey];
+                } else {
+                throw new ReferenceError("Prop name \"" + propKey + "\" does not exist.");
+                }
+            }
+            });
+            proxy.name // "张三"
+            proxy.age // 抛出一个错误
+        }
+        function test5(){
+            let obj = {age:18};
+            var loggedObj = new Proxy(obj, {
+                get(target, name) {
+                    console.log('get', target, name);
+                    return Reflect.get(target, name);
+                },
+                deleteProperty(target, name) {
+                    console.log('delete' + name);
+                    return Reflect.deleteProperty(target, name);
+                },
+                has(target, name) {
+                    console.log('has' + name);
+                    return Reflect.has(target, name);
+                }
+            });
+        console.log(delete loggedObj.age);
+        console.log('age', Reflect.deleteProperty(obj, 'age'));
+        console.log('obj', obj);
+        }
+        test5();
+
     </script>
 </body>
 
