@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>documentFragment 文档碎片</title>
+</head>
+
+<body>
+    <!-- 111111111
+    <div id="app">
+        1
+        <input type="text" v-model="text" />
+    </div> -->
+    <ul id="list"></ul>
+    <script>
+        // const app = document.getElementById("app");
+        // const nodetoFragment = (node) => {
+        //     debugger
+        //     const flag = document.createDocumentFragment();
+        //     let child;
+        //     while (child = node.firstChild) {
+        //         flag.appendChild(child);//不断劫持挂载元素下的所有dom节点到创建的DocumentFragment
+        //     }
+        //     return flag
+        // }
+        // const dom = nodetoFragment(app);
+        // console.log('dom', dom);
+        function test1() {
+            const list = document.querySelector('#list');
+            let fruits = [];
+            const arr = ['Apple', 'Orange', 'Banana', 'Melon', 'fruit'];
+            let fragment = document.createDocumentFragment();
+            for (let i = 0; i < 10000; i++) {
+
+                let index = i % 5;
+                const li = document.createElement('li');
+                li.innerHTML = i + arr[index];
+                fragment.appendChild(li);
+            }
+            // console.log('fruits', fruits);
+            list.appendChild(fragment);
+        }
+
+        function test2() {
+            const list = document.querySelector('#list');
+            var str = '';
+            const arr = ['Apple', 'Orange', 'Banana', 'Melon', 'fruit'];
+            for (var i = 0; i < 100000; i++) {
+                let index = i % 5;
+                str += '<li>' + i + arr[index] + '</li>';
+            }
+            list.innerHTML = str;
+            // list.appendChild(fragment);
+        }
+        // console.time('test2');
+        // test2();
+        // console.timeEnd('test2');
+        console.time('test1');
+        test1();
+        console.timeEnd('test1');
+    </script>
+</body>
+
+</html>

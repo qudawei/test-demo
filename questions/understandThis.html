@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.默认指向window 严格模式为undefined
+        console.log('this',this);
+        //2.够造函数隐士创建this 并可改变this指向
+        function Person(name) {
+            this.name = name;
+            console.log(name);
+        }
+        let person1 = new Person('Messi'); //Messi
+        //3.箭头函数的是没有属于自己的this的，它所谓的this是捕获其上下文的this，作为自己的this，所以箭头函数不会被new调用,所谓的this也不会被改变
+        method1();
+        function method1(){
+            // ES6
+            const obj = {
+                getArrow() {
+                    return () => {
+                        console.log(this === obj);
+                    };
+                }
+            } 
+            obj.getArrow()();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- 不加此标签，IE不生效 -->
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+    <title>表头锁定</title>
+</head>
+<style>
+</style>
+<body>
+	<button onclick="show()">xiazia</button>
+	<button onclick="download()">xiazia2</button>
+	<script>
+		function show(){
+			var myFrame= document.createElement('iframe');
+			myFrame.src = 'http://fuyuan-net.oss-cn-hangzhou.aliyuncs.com/image/201812121109275441.xls';//服务器路径
+			myFrame.style.display = 'none';
+			document.body.appendChild(myFrame);
+		}
+		
+		function download() {
+			
+			let url = 'http://10.2.122.157/group1/M00/09/43/CgJ6nV_MtpqAfjRGAAAm39PFRMU3440538?token=328b78937469d5dde4c1f6e6f4bfcc3d&ts=1607324495'
+			// let url =  'http://fuyuan-net.oss-cn-hangzhou.aliyuncs.com/image/201812121109275441.xls';//服务器路径
+			let a = document.createElement('a');
+			a.download = 'test.zip';
+			a.href = url;
+			a.target = '_blank';
+			document.body.appendChild(a);
+			a.click();
+			document.removeChild(a);
+		}
+	</script>
+</body>
+</html>

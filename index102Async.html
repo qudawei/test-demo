@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index102Async</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <script>
+    async function  test(){
+      function getFoo(){
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+              console.log('getFoo');
+              resolve ('getFoo')
+            },3000)
+        })
+      }
+      function getBar(){
+        return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            console.log('getBar');
+            resolve ('getBar')
+          },4000)
+        })
+      }
+      // 写法二
+      let fooPromise = getFoo();
+      let barPromise = getBar();
+      let foo = await fooPromise;
+      let bar = await barPromise;
+      console.log(111,foo);
+      console.log(222,bar);
+    }
+    test();
+  </script>
+</body>
+
+</html>

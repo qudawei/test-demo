@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index89排序</title>
+</head>
+
+
+<body>
+  <script>
+    let arr = [{name:'jack',id:1},{name:'jack',id:2},{name:'jack',id:3},{name:'jack',id:4},{name:'jack',id:5}]
+    let idArrs = [5,1,4,3,2]
+    // 按照索引大小顺序进行排序
+    function test1(arr, idArrs){
+      arr.sort((a,b)=>{
+        return idArrs.indexOf(a.id) - idArrs.indexOf(b.id)
+      })
+      console.log('arr', arr);
+    }
+    // 存入对象，再遍历数组排序
+    function test2(arr, idArrs){
+      let obj = {}
+      arr.map(item => {
+          obj[item.id] = item
+          return item
+      })
+      arr = idArrs.map(id => {
+          return obj[id]
+      })
+    }
+    test1(arr, idArrs)
+    test2(arr, idArrs)
+    
+
+  </script>
+</body>
+
+</html>

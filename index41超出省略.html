@@ -36,7 +36,8 @@
             .mls-ellipsis {
                 overflow: hidden;
                 position: relative;
-                max-height: 90px;
+                /* max-height: 90px; */
+                max-height: 100%;
             }
             .mls-ellipsis::after {
                     position: absolute;
@@ -46,6 +47,18 @@
                     background: linear-gradient(to right, transparent, #fff 50%);
                     content: "...";
                 }
+            table{
+                border-collapse: collapse;
+                table-layout: fixed;
+            }
+            table tr td,table tr th {
+                border: 1px solid;
+            }
+            span{
+                white-space: nowrap;
+                display: inline-block;
+                max-width: 300px;
+            }
         </style>
     </head>
     <div class="bruce flex-ct-y">
@@ -53,6 +66,25 @@
         <p class="multiple-line ml-ellipsis">层叠样式表(CSS)是一种用来表现HTML(标准通用标记语言的一个应用)或XML(标准通用标记语言的一个子集)等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
         <p class="multiple-line mls-ellipsis">层叠样式表(CSS)是一种用来表现HTML(标准通用标记语言的一个应用)或XML(标准通用标记语言的一个子集)等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
     </div>
+    <!-- 如下table所示，table中放入span，若spanwhitespace nowrap 则会将table撑开 -->
+    <table style="border: 1;">
+        <tr>
+            <th>the first</th>
+            <th>the second</th>
+            <th>the third</th>
+            <th>the fourth</th>
+            <th>the fifth</th>
+        </tr>
+        <tr>
+            <td width="5%">
+                <span class="mls-ellipsis">CSS非常有趣和搞怪，可以做一些JS也能做的事情CSSCSS非常有趣和搞怪，可以做一些JS也能做的事情CSS非常有趣和搞怪，可以做一些JS也能做的事情非常有趣和搞怪，可以做一些JS也能做的事情</span>
+            </td>
+            <td  width="20%">CSS非常有趣和搞怪，可以做一些JS也能做的事情</td>
+            <td  width="20%">CSS非常有趣和搞怪，可以做一些JS也能做的事情</td>
+            <td  width="20%">CSS非常有趣和搞怪，可以做一些JS也能做的事情</td>
+            <td  width="20%">CSS非常有趣和搞怪，可以做一些JS也能做的事情</td>
+        </tr>
+    </table>
     <script>
     </script>
 </body>

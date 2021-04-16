@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index86垂直居中</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* table */
+    .parent1 {
+      display: table;
+      height: 300px;
+      width: 300px;
+      background-color: red;
+    }
+
+    .parent1 .child {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .parent2 {
+      height: 300px;
+      width: 300px;
+      text-align: center;
+      background: red;
+    }
+
+    .parent2 span {
+      display: inline-block;
+      ;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+      zoom: 1;
+      *display: inline;
+    }
+
+    .parent2 .child {
+      display: inline-block;
+      color: #fff;
+      zoom: 1;
+      /*BFC*/
+      *display: inline;
+    }
+
+    .parent3 {
+      position: relative;
+      height: 300px;
+      width: 300px;
+      background: red;
+    }
+
+    .parent3 .child {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      transform: translate(-50%, -50%);
+    }
+
+    .parent4 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      height: 300px;
+      background: red;
+    }
+
+    .parent4 .child {
+      color: #fff;
+    }
+
+    .parent5 {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: red;
+    }
+
+    .parent5 .child {
+      color: #fff;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      width: 50%;
+      height: 20%;
+    }
+  </style>
+</head>
+
+
+<body>
+  https://www.cnblogs.com/paul123/p/11071111.html
+  <div class="parent1">
+    <div class="child">hello world-1</div>
+  </div>
+  11111111111
+  <div class="parent2">
+    <span></span>
+    <div class="child">hello world-2</div>
+  </div>
+  2222222222
+  <div class="parent3">
+    <div class="child">hello world-3</div>
+  </div>
+  333333333
+  <div class="parent4">
+    <div class="child">hello world-4</div>
+  </div>
+  444444444
+  <div class="parent5">
+    <div class="child">hello world-5</div>
+  </div>
+  5555555555
+</body>
+
+</html>

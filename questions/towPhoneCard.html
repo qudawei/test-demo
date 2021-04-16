@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //每个月打电话多少分钟使用A卡（0.12元/m）优惠
+        //每个月打电话多少分钟使用B卡（0.1元/m + 10）优惠
+        let x = 0;//分钟
+        let cardA = 0;
+        let cardB = 0;
+        for(;;){
+            x++;
+            cardA =  x * 0.12 * 100;
+            cardB =  x * 0.1 * 100;//未算月租
+            //每个月的花费对比
+            if(cardA/100 >= (cardB/100 + 10)){
+                console.log('x', x)
+                console.log(`每个月打电话不超过${x}分钟，A卡优惠`);
+                console.log(`每个月打电话超过${x}分钟，B卡优惠`);
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

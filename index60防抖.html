@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>防抖函数</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100%;
+            height: 100px;
+            background: lightblue;
+            color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            let box = document.getElementsByClassName('box')[0];
+            box.onmousemove = debounce(move, 1000);
+            function move(ev){
+                console.log(ev, this)
+                this.innerHTML = ev.clientX;
+            }
+            function debounce(fn, wait){
+                debugger
+                let timer = null;
+                return function(){
+                    let args = arguments;
+                    timer && clearTimeout(timer);
+                    let now = !timer;
+                    timer = setTimeout(() =>{
+                        timer = null;
+                    },wait)
+                    // 此处涉及异步执行
+                    if(now){
+                        fn.apply(this, args)
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div style="font-weight: bold;">作用是在短时间内多次触发同一个函数，只执行最后一次，或者只在开始时执行。</div>
+    <div class="box"></div>
+</body>
+
+</html>
