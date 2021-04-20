@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index105dataStrctor</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div>
+    industry_list = [
+    {
+    "parent_ind" : "女装",
+    "name" : "连衣裙"
+    },
+    {
+    "name": "女装"
+    },
+    {
+    "parent_ind" : "女装",
+    "name" : "半身裙"
+    },
+    {
+    "parent_ind" : "女装",
+    "name" : "A字裙"
+    },
+    {
+    "name": "数码"
+    },
+    {
+    "parent_ind" : "数码",
+    "name": "电脑配件"
+    },
+    {
+    "parent_ind" : "电脑配件",
+    "name": "内存"
+    },
+    ]
+
+    为了取用方便，我们希望可以将其转换为树状格式，例如：
+    {
+      "数码": {
+        "电脑配件": {
+        "内存" : {}
+      }
+      },
+      "女装" : {
+        "连衣裙": {},
+        "半身裙": {},
+        "A字裙": {}
+      }
+    }
+    实现一个方法完成这个转换
+    function convert_format(data)
+  </div>
+  <script>
+    let  industry_list = [
+      {
+      "parent_ind" : "女装",
+      "name" : "连衣裙"
+      },
+      {
+      "name": "女装"
+      },
+      {
+      "parent_ind" : "女装",
+      "name" : "半身裙"
+      },
+      {
+      "parent_ind" : "女装",
+      "name" : "A字裙"
+      },
+      {
+      "name": "数码"
+      },
+      {
+      "parent_ind" : "数码",
+      "name": "电脑配件"
+      },
+      {
+      "parent_ind" : "数码",
+      "name": "内存"
+      },
+    ]
+    function convert_format(data){
+      let result = {};
+      for(let i = 0;i < data.length;i++){
+        if(!data[i].parent_ind){
+          result[data[i].name] = getChildren(data,data[i].name);
+        }
+      }
+      return result;
+    }
+    function getChildren(data,pid){
+      debugger
+      let children = {};
+      for(let i = 0;i < data.length;i++){
+        if(data[i].parent_ind == pid){
+          children[data[i].name] = {};
+        }
+      }
+      return children;
+    }
+   let result = convert_format(industry_list);
+   console.log('result', result);
+  </script>
+</body>
+
+</html>
