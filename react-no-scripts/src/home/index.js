@@ -3,11 +3,11 @@
  * @Version: 
  * @Author: David Qu
  * @Date: 2021-04-26 19:25:53
- * @LastEditTime: 2021-04-26 19:48:44
+ * @LastEditTime: 2021-04-30 10:32:13
  * @LastEditors: David Qu
  */
-import React from 'react'
-import "./test.css"
+import React from "react";
+import "./test.css";
 // import awardImg from "../../assets/img/awardImg.png"
 export default class Home extends React.Component {
     render(){
@@ -16,6 +16,6 @@ export default class Home extends React.Component {
                 <p>hello world123</p>
                 {/* <img src={awardImg} alt="" style={{width:360,height:60}}/> */}
             </div>
-        )
+        );
     }
 }

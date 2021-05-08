@@ -3,13 +3,14 @@
  * @Version: 
  * @Author: David Qu
  * @Date: 2021-04-26 17:13:45
- * @LastEditTime: 2021-04-26 19:40:13
+ * @LastEditTime: 2021-04-29 14:25:44
  * @LastEditors: David Qu
  */
 const utils = require("./utils")
 const path = require('path') ;
+debugger
 console.log('utils', utils);
-console.log('path', path);
+console.log('path', path.join);
 module.exports = {
     // 入口
     entry: {
