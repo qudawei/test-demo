@@ -1,0 +1,75 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-06-14 14:45:47
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-06-14 18:16:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index4缓动动画</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            left: -200px;
+        }
+        #btn{
+            display: inline-block;
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            margin-top: -30px;
+            color:#fff;
+            background-color: black;
+            line-height: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <span id="btn">拉开</span>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        let btn = document.getElementById('btn');
+        let box = document.getElementById('box');
+        let timer = null, speed = 0,end = 0,end2 = -200;
+        //缓动动画公式：加速度 = （结束值 - 起始值）/缓动系数 加速度由慢到慢
+        box.onmouseover = function(){
+            slowAnimation(this, 0)
+        }
+        box.onmouseout = function(){
+            slowAnimation(this, -200)
+        }
+        function slowAnimation(obj, end){
+            clearInterval(timer)
+            timer = setInterval(() => {
+                speed = (end - obj.offsetLeft) / 20
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if(obj.offsetLeft === end){
+                    clearInterval(timer)
+                }else{
+                    obj.style.left = obj.offsetLeft + speed + 'px';
+                }
+                console.log(obj.offsetLeft, speed);
+            }, 30);
+        }
+    }
+</script>
+</html>
