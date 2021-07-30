@@ -1,0 +1,110 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-07-23 16:21:11
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-07-23 18:12:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index121栈</title>
+</head>
+
+<body>
+    <script>
+        // 实现栈
+        class Stack {
+            dataStore = [];
+            top = 0;
+            push(element) {
+                this.dataStore[this.top++] = element;
+            }
+            peek() {
+                return this.dataStore[this.top - 1];
+            }
+            pop() {
+                return this.dataStore[--this.top];
+            }
+            clear() {
+                this.top = 0;
+            }
+            length() {
+                return this.top;
+            }
+        }
+        // 测试栈  使用栈可以用来进制转换
+        function mulBase(num, base) {
+            var s = new Stack();
+            do {
+                s.push(num % base);
+                num = Math.floor(num /= base);
+            } while (num > 0);
+            var converted = "";
+            while (s.length() > 0) {
+                converted += s.pop();
+            }
+            return converted;
+        }
+        // 判断回文（字符串正反都是一致的）
+        function isPalindrome(word) {
+            var s = new Stack();
+            for (var i = 0; i < word.length; ++i) {
+                s.push(word[i]);
+            }
+            var rword = "";
+            while (s.length() > 0) {
+                rword += s.pop();
+            }
+            if (word == rword) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        var s = new Stack();
+        // 递归应用
+        function factorial(num){
+            while(num > 1){
+                s.push(num--)
+            }
+            let product = 1;
+            while(s.length() > 0){
+                product *= s.pop()
+            }
+            return product;
+        }
+        // console.log('factorial(4)', factorial(5));
+        // 找到缺失括号表达式位置
+        function matchBracket(expression){
+            let s = new Stack();
+            for(let i = 0;i < expression.length; i++){
+                let tempChar = expression.charAt(i);
+                if( tempChar === '('){
+                    s.push(i);
+                    
+                }else if(tempChar === ')'){
+                    if(s.length() > 0){
+                        s.pop()
+                    }else{
+                        s.push(i);
+                        return `${expression}的第${s.peek() + 1}个字符是不匹配的括号。`;
+                        break;
+                    }
+                }
+            }
+            return `${expression}的第${s.peek() + 1}个字符是不匹配的括号。`;
+        } 
+        let expression = '2.3 + 23 / 12 + 3.14159) * 0.24';
+        console.log(matchBracket(expression)) 
+        // mulBase(11, 2)
+    </script>
+</body>
+
+</html>
