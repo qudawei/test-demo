@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-05 16:06:48
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-08-07 16:33:00
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>www.jb51.net 展开和收缩</title>
+  <style>
+    p {
+      margin: 0 auto;
+      width: 500px;
+      padding: 20px;
+      border: 5px solid #888;
+      background-color: #ffcc33;
+    }
+  </style>
+</head>
+<script>
+  window.onload = function() {
+    var oP = document.getElementsByTagName("p")[0]
+    var oSpan = oP.getElementsByTagName("span")[0];
+    var oA = oP.getElementsByTagName("a")[0];
+    var str = oSpan.innerHTML;
+    var onOff=true;
+    oA.onclick = function() {
+      if(onOff) {
+        oSpan.innerHTML = str.substring(0, 22);
+        oA.innerHTML = "<< 展开"
+      } else {
+        oSpan.innerHTML = str.substring(0);
+        oA.innerHTML = "<< 收缩"
+      }
+      onOff=!onOff;
+    }
+  }
+</script>
+<body>
+<p>
+    <!-- <span>123123123123123123112312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312312323123123123123123</span> -->
+<span>，不要把它们当作食物。</span>...<a href="javascript:;" rel="external nofollow" ><< 收缩</a>
+</p>
+</body>

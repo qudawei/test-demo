@@ -1,0 +1,47 @@
+<!--
+ * @Description: HTML5引入了 history.pushState() 和 history.replaceState() 方法，
+                它们分别可以添加和修改历史记录条目。这些方法通常与window.onpopstate 配合使用。
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-02 11:32:28
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-08-02 15:19:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pushState用法</title>
+</head>
+<body>
+    <button>click</button>
+    <script>
+        // console.log(111);
+        // window.onpopstate = function(){
+        //     console.log("onpopstate");
+        // }
+        // window.addEventListener("popstate", function (e) {
+        //     console.log('addEventListener', "onpopstate");
+        // }, false);
+        // window.onclick = function(){
+        //     console.log("dont't touch me");
+        // }
+        // var stateObj = { 'pushState用法': "test" };
+        // history.pushState(stateObj, "page 2", "test.html");
+
+        window.addEventListener('popstate', (event) => {
+            debugger
+        console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        });
+        // history.pushState({page: 1}, "title 1", "?page=1");
+        // history.pushState({page: 2}, "title 2", "?page=2");
+        // history.replaceState({page: 3}, "title 3", "?page=3");
+        // history.back(); // Logs "location: http://example.com/example.html?page=1, state: {"page":1}"
+        // history.back(); // Logs "location: http://example.com/example.html, state: null
+        // history.go(2);  // Logs "location: http://example.com/example.html?page=3, state: {"page":3}
+
+    </script>
+</body>
+</html>
