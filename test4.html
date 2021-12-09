@@ -1,0 +1,105 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能按钮渐入</title>
+    <style>
+        body {
+            background: url("https://s7.music.126.net/5fbe14ccc914bf80c73c7146/p5_BG.faabc83e4c8615fadbf7fb19939545b9.png") 100% 100%;
+        }
+
+        @keyframes p5_fadeIn {
+            0% {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .P5_singleIconLight1 {
+            left: 24.13333vw;
+            top: 85.8vw;
+            width: 85.46667vw;
+            height: 48vw;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transform: translateZ(0) rotate(0deg) scale(1);
+            transform: translateZ(0) rotate(0deg) scale(1);
+            opacity: 1;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            display: block;
+            position: absolute
+        }
+
+        .P5_singleIconLight1BG {
+            background: url(//s7.music.126.net/5fbe14ccc914bf80c73c7146/P5_singleIconLight1.429771030e64600b1f2d10abe32d7748.png);
+            background-size: cover
+        }
+
+        .P5_singleIconLight2 {
+            left: 24.13333vw;
+            top: 85.8vw;
+            width: 85.46667vw;
+            height: 48vw;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transform: translateZ(0) rotate(0deg) scale(1);
+            transform: translateZ(0) rotate(0deg) scale(1);
+            opacity: 1;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            display: block;
+            position: absolute
+        }
+
+        .P5_singleIconLight2BG {
+            background: url(//s7.music.126.net/5fbe14ccc914bf80c73c7146/P5_singleIconLight2.0a7f708f3eaac973d1344e44776afbf2.png);
+            background-size: cover
+        }
+
+        .P5_singleIconLight3 {
+            left: 24.13333vw;
+            top: 85.8vw;
+            width: 85.46667vw;
+            height: 48vw;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transform: translateZ(0) rotate(0deg) scale(1);
+            transform: translateZ(0) rotate(0deg) scale(1);
+            opacity: 1;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            display: block;
+            position: absolute
+        }
+
+        .P5_singleIconLight3BG {
+            background: url(//s7.music.126.net/5fbe14ccc914bf80c73c7146/P5_singleIconLight3.1b134bff09094c1f61f0cdcbf02522db.png);
+            background-size: cover
+        }
+
+        .p5_fadeIn1 {
+            animation: p5_fadeIn 1s linear .4s 1 normal both
+        }
+
+        .p5_fadeIn2 {
+            animation: p5_fadeIn .5s linear .7s 1 normal both
+        }
+
+        .p5_fadeIn3 {
+            animation: p5_fadeIn .5s linear 1s 1 normal both
+        }
+    </style>
+</head>
+
+<body>
+    <div class="P5_singleIconLight1 P5_singleIconLight1BG p5_fadeIn1"></div>
+    <div class="P5_singleIconLight2 P5_singleIconLight2BG p5_fadeIn2"></div>
+    <div class="P5_singleIconLight3 P5_singleIconLight3BG p5_fadeIn3"></div>
+</body>
+
+</html>

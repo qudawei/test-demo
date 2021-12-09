@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-26 19:15:33
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-08-27 12:07:01
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <span>天猫旗舰店   49.67%(tmall)</span><br>
+        <span style="font-size: 12px;">12343535353545一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一</span>
+        <script>
+            
+            function getTextWidth(str = '') {
+                const dom = document.createElement('span');
+                dom.style.display = 'inline-block';
+                dom.textContent = '天猫旗舰店   49.67%(tmall)';
+                document.body.appendChild(dom);
+                const width = dom.clientWidth;
+                console.log(dom.clientWidth);
+                document.body.removeChild(dom);
+                return width;
+            }
+            console.log(getTextWidth());
+            String.prototype.pxWidth = function(font) {
+                debugger
+                // re-use canvas object for better performance
+                var canvas = String.prototype.pxWidth.canvas || (String.prototype.pxWidth.canvas = document.createElement("canvas")),
+                    context = canvas.getContext("2d"); 
+
+                font && (context.font = font);
+                var metrics = context.measureText(this);
+
+                return metrics.width;
+            }
+            const pxWidth2 = (strings, font)=> {
+                // re-use canvas object for better performance
+                var canvas = String.prototype.canvas || (String.prototype.canvas = document.createElement("canvas")),
+                    context = canvas.getContext("2d"); 
+
+                font && (context.font = font);
+                var metrics = context.measureText(strings);
+
+                return metrics.width;
+            }
+            console.log('111',pxWidth2('12343535353545一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一天到晚游泳的鱼啊一','normal 12px Robot'));
+        </script>
+    </body>
+</html>

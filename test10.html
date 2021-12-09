@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          padding: 40px;
+        }
+        
+        div {
+          width: 50vw;
+          height: 50vh;
+          background: green;
+          position: relative;
+          max-width: 40px;
+          animation: ani 3s linear both;
+          
+          &::before,
+          &::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 54vh;
+            background: orange;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+          }
+          &::after {
+            background: #f36;
+            transform: translate(20px, -50%);
+            animation: ani2 3s linear both;
+          }
+        }
+        
+        @keyframes ani {
+          to {
+            max-width: 50vw;
+          }
+        }
+        
+        @keyframes ani2 {
+          to {
+            transform: translate(50vw, -50%);
+          }
+        }
+    </style>
+</head>
+</html>

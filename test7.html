@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <script src=`//j1.58cdn.com.cn/visual-tracking/tracking_v${new Date().getTime()}.js`></script> -->
+    <!-- <script src="//j1.58cdn.com.cn/visual-tracking/tracking_v"+"'+new Date().getTime().js+'"></script> -->
+
+    <!-- <script src="//j1.58cdn.com.cn/visual-tracking/tracking.js?query=1"></script> -->
+
+    <script type="text/javascript">
+        (function () {
+          var tracks = document.createElement("script");
+          tracks.type = "text/javascript";
+          tracks.src =
+            ("https:" == document.location.protocol ? " https://" : " http://") +
+            "j1.58cdn.com.cn/visual-tracking/tracking.js?query=" +
+            new Date().getHours()
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(tracks, s);
+        })();
+      </script>
+      <script type="text/javascript">
+          console.log(123123);
+      </script>
+
+
+</head>
+<body>
+    <!-- <script>
+        let a = 1;
+        let str = `//j1.58cdn.com.cn/visual-tracking/tracking_v${new Date().getTime()}.js`
+        // console.log(1123123,str);
+    </script> -->
+</body>
+</html>

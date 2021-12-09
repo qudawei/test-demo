@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-04-26 14:53:08
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-12-01 10:27:54
+-->
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -42,16 +50,21 @@
         //     alert("这是第三种点击方式");
         // }
         function clos1e() {
-            console.log(11);
             open(location, '_self').close()
             window.close();
 
         }
         function open2(){
-            console.log(1111);
             var win = window.open("myjq.html", "_blank");
             // window.open("http://www.baidu.com/", "_blank");
         }
+        let params = {a:1,b:2};
+        let params2 = {};
+        function lll(...params){
+            console.log(params);
+            console.log(...params);
+        }
+        lll( params2)
     </script>
 </body>
 </html>

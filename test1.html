@@ -1,46 +1,77 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com) what does the fox say?</title>
-    <script>
-        function open_win() {
-            window.open("http://www.baidu.com");
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 50px auto;
+        top: 100px;
+        transform-style: preserve-3d; /*开启3D*/
+        position: relative;
+        transform: rotateY(-21deg) rotateX(-19deg);
+        animation: move 3s linear infinite; /*添加的观测动画效果*/
+      }
+      .inner {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: red;
+        opacity: 0.5;
+        text-align: center;
+        font-size: 44px;
+        color: red;
+        line-height: 200px;
+      }
+      .top {
+        background: red;
+        transform: rotateX(90deg) translateZ(100px);
+        color: royalblue;
+      }
+      .bottom {
+        background: orange;
+        transform: rotateX(90deg) translateZ(-100px);
+      }
+      .left {
+        background: yellow;
+        transform: rotateY(90deg) translateZ(100px);
+      }
+      .right {
+        background: green;
+        transform: rotateY(90deg) translateZ(-100px);
+      }
+      .font {
+        background: blue;
+        transform: rotateZ(90deg) translateZ(100px);
+      }
+      .back {
+        background: purple;
+        transform: rotateZ(90deg) translateZ(-100px);
+      }
+      @keyframes move {
+        25% {
+          transform: rotateY(-30deg) rotateX(-30deg);
         }
-    </script>
-    
-<style type="text/css">
-    a:link {
-	    color: yellow; /*未访问的链接颜色*/
-    }
- 
-    a:visited {
-	    color: red; /*已访问的链接颜色*/
-    }
- 
-    a:hover {
-	    color: blue; /*鼠标移动到链接的颜色*/
-	    text-decoration: underline;
-    }
- 
-    a:active {
-	    color: orange; /*鼠标点击时的颜色*/
-    }
- 
-    a {
-    	text-decoration: none; /*去掉下划线*/
-    }
-</style>
-</head>
-
-<body>
-
-    <form>
-        <a href="http://www.baidu.com" target="_blank">打开窗口</a>
-        <input type="button" value="打开窗口" onclick="open_win()">
-    </form>
-
-</body>
-
+        50% {
+          transform: rotateY(-70deg) rotateX(-70deg);
+        }
+        50% {
+          transform: rotateY(-120deg) rotateX(-110deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inner top">上</div>
+      <div class="inner bottom">下</div>
+      <div class="inner left">左</div>
+      <div class="inner right">右</div>
+      <div class="inner font">前</div>
+      <div class="inner back">后</div>
+    </div>
+  </body>
 </html>

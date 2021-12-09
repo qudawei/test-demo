@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据中心</title>
+    <script> !function (e, t) {
+        function n() {
+            var t = o.getBoundingClientRect().width;
+            if (t > 414) {
+                t = 414
+            }
+            ;
+            var n = t / 10;
+            o.style.fontSize = n + "px", d.rem = e.rem = n
+        }
+
+        var i, r = e.document, o = r.documentElement, a = 0, d = t.flexible || (t.flexible = {}),
+            s = e.navigator.appVersion.match(/iphone/gi), m = e.navigator.appVersion.match(/UCBrowser/gi),
+            p = e.devicePixelRatio;
+        a = s ? p >= 3 && (!a || a >= 3) ? 3 : p >= 2 && (!a || a >= 2) ? 2 : 1 : 1, o.setAttribute("data-dpr", a), "complete" === r.readyState ? r.body.style.fontSize = "12px" : r.addEventListener("DOMContentLoaded", function () {
+            r.body.style.fontSize = "12px"
+        }, !1);
+        var c = "onorientationchange" in window ? "orientationchange" : "resize";
+        if (e.addEventListener(c, function () {
+            clearTimeout(i), i = setTimeout(n, 300)
+        }, !1), e.addEventListener("pageshow", function (e) {
+            e.persisted && (clearTimeout(i), i = setTimeout(n, 300))
+        }, !1), n(), d.dpr = e.dpr = a, d.refreshRem = n, d.rem2px = function (e) {
+            var t = parseFloat(e) * this.rem;
+            return "string" == typeof e && e.match(/rem$/) && (t += "px"), t
+        }, d.px2rem = function (e) {
+            var t = parseFloat(e) / this.rem;
+            return "string" == typeof e && e.match(/px$/) && (t += "rem"), t
+        }, s && !m) {
+            var l = "notHairlines", u = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/), f = parseInt(u[1], 10);
+            f >= 8 && (l = "hairlines"), document.documentElement.classList.add(l)
+        }
+    }(window, window.lib || (window.lib = {})); </script>
+    <link href='//c.58cdn.com.cn/git/hrg-fe-zhaopin/app-data-center/appDataCenter_v20210926190028.css' rel="stylesheet">
+</head>
+<body>
+<div id="app"></div>
+<script>
+    var ____json4fe = {
+        tjfromSource:""
+    }
+</script>
+<script src='//a.58cdn.com.cn/app58/rms/app/js/app_30805.js'></script>
+<script src='//j1.58cdn.com.cn/git/zcmClientMobileCore/zcmClientMobileCore.min_v20201110203458.js'></script>
+<script src="//tracklog.58.com/referrer_m.js"></script>
+<script src='//j1.58cdn.com.cn/job/app/common/0.1/echarts.min_v20181228102321.js'></script>
+<script src="//j1.58cdn.com.cn/visual-tracking/tracking.js"></script>
+
+<script type="text/javascript">
+
+  (function () {
+    var tracks = document.createElement("script");
+    tracks.type = "text/javascript";
+    tracks.src =
+      ("https:" == document.location.protocol ? " https://" : " http://") +
+      "j1.58cdn.com.cn/visual-tracking/tracking.js?query=" +
+      new Date().getHours()
+    var s = document.getElementsByTagName("script")[0];
+    console.log('1111')
+    s.parentNode.insertBefore(tracks, s);
+  })();
+  console.log('22222')
+</script>
+<script type="text/javascript" src='//j1.58cdn.com.cn/git/hrg-fe-zhaopin/app-data-center/appDataCenter_v2021092619002.js?query=1'></script>
+<!--  EMS性能统计代码 -->
+<script type="text/javascript">
+    var EMS_SDK_CONFIG = {
+        id: 336, //ID为 EMS 系统分配的页面的 id（必填）
+        random: 0.1 // 抽样 (0-1] 1-全量 （选填，默认0.5）
+    };
+    (function () {
+        var ems = document.createElement("script");
+        ems.type = "text/javascript";
+        ems.src = (("https:" == document.location.protocol) ? " https://" : " http://") + "j1.58cdn.com.cn/ems/performance/1.0/js/bundle.performance.js?" + (+new Date(new Date().setHours(0, 0, 0, 0)));
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(ems, s);
+    })();
+</script>
+</body>
+
+
+</html>
