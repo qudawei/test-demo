@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-10-11 15:34:54
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-10-11 15:57:08
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+ <head>
+     <title>Untitled Page</title>
+      <!-- <script type="text/javascript" src=jquery.min.js"></script> -->
+      <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+
+      <script type="text/javascript">
+     jQuery(document).ready(function(){
+        $.ajax({
+             type: "get",
+             async: false,
+             url: "http://v.juhe.cn/weather/index?cityname=%E6%9D%AD%E5%B7%9E&dtype=json&format=1&key=70e01dc890b7247f9f757c9ccf91556f",
+             dataType: "jsonp",
+             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+             jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+             success: function(json){
+                 console.log('json', json);
+                 console.log('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张。');
+             },
+             error: function(err){
+                 console.log('fail',err);
+             }
+         });
+     });
+     </script>
+     </head>
+  <body>
+  </body>
+ </html>

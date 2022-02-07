@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-01-25 15:02:42
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-01-25 15:26:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据代理</title>
+</head>
+<body>
+    what does the fox say?
+    <script>
+        let obj = {
+            x:100
+        }
+        let obj2 = {
+            y:200
+        }
+        Object.defineProperty(obj2, 'x', {
+            get:function(){
+                return obj.x;
+            },
+            set:function(val){
+                console.log('修改了setter')
+                obj.x = val;
+            }
+        })
+        console.log('obj2', obj2)
+    </script>
+</body>
+</html>

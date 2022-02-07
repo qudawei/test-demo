@@ -1,0 +1,32 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-12-10 19:34:40
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-12-10 19:34:50
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+ 
+		div {
+			width: 300px;
+			height: 300px;
+			background-color: red;
+			border-radius: 50%;
+			margin: 100px auto;
+ 
+			/* 立体感的球体。 用background-image否则会覆盖掉背景色,径向渐变的颜色有透明度 */
+			background-image: radial-gradient(at 80px 80px, rgba(0,0,0,0), rgba(0,0,0,0.6));
+		}
+ 
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

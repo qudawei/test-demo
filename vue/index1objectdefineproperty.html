@@ -1,0 +1,41 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-01-25 15:02:42
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-07 11:19:14
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index1objectdefinepropertu</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    what does the fox say?
+    <script>
+        let number = 19;
+        let person = {
+            name:'张胜男',
+            // age:number
+        }
+        Object.defineProperty(person, 'age', {
+            // value:'女',
+            // writable:true,
+            get:function(){
+                return number
+            },
+            set:function(val){
+                console.log('修改了setter')
+                number = val;
+                return number;
+            }
+        })
+        console.log('person', person)
+    </script>
+</body>
+</html>
