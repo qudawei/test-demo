@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-05 11:42:28
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-05 21:00:11
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-create-virtual-dom</title>
+</head>
+<body>
+    <div id="root">
+        <ul>
+            <li>demo01</li>
+            <li>demo02</li>
+            <li>demo03</li>
+        </ul>
+    </div>
+    <script>
+        // 虚拟dom可以减少操作dom次数，只需要渲染dom一次
+        // <div />  {tag:'div'}
+        // 文本节点  {tag:undefined, value:'文本'}
+        // <div class='a' name='lll'>  {tag: 'div', data: {name:'lll', class:'a'}}
+        // <div><div /></div> {tag:'div', children:[{tag:'div'}]}
+        class VNode{
+            /**
+             * tag: 标签名
+             * data: 属性
+             * value: 文本
+             * type: 类型
+            */
+            constructor(tag, data, value, type){
+                this.tag = tag && tag.toLowerCase();
+                this.value = value;
+                this.data = data;
+                this.type = type;
+                this.children = [];
+            }
+            appendChild(vnode){
+                this.children.push(vnode)
+            }
+        }
+        // 使用递归遍历dom， 生成虚拟dom
+        function generateVNode(node){
+            let nodeType = node.nodeType; //  1 元素 3 文本
+            let _vnode = null;
+            if(nodeType === 1){ 
+                let nodeName = node.nodeName; // 
+                let attrs = node.attributes; // 属性
+                let _attrObj = {};
+                for(let i = 0; i < attrs.length; i++){
+                    _attrObj[attrs[i].name] = attrs[i].nodeValue;
+                }
+                _vnode = new VNode(nodeName, _attrObj, undefined, nodeType);
+                // 考虑 node 的子元素
+                let childNodes = node.childNodes;
+                for(let i = 0; i < childNodes.length; i++){
+                    _vnode.appendChild(generateVNode(childNodes[i])); // 递归
+                }
+            }else if(nodeType === 3){ 
+                _vnode = new VNode(undefined, undefined, node.nodeValue, nodeType);
+            }
+            return _vnode;
+        }
+        // 将 vNode 转换为真正的 DOM ( 作业 )
+        function parseVNode(vnode){
+
+        }
+        let vnode = generateVNode(document.getElementById('root'));
+        console.log('vnode', vnode);
+    </script>
+</body>
+</html>

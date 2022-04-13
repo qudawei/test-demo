@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-04 11:48:51
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-08 16:17:06
+-->
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>index144bind</title>
+</head>
+<body>
+    <script>
+     let x = 23
+      const module = {
+        x: 42,
+        getX: function() {
+          return this.x;
+        }
+      };
+
+      const unboundGetX = module.getX;
+      console.log(unboundGetX()); // The function gets invoked at the global scope
+      console.log('unboundGetX', unboundGetX);
+      const boundGetX = unboundGetX.bind(module);
+      console.log(boundGetX());
+
+      // 拼接字符串
+      function chainStr(...args){
+        let str = '';
+        for(let i = 0; i < args.length; i++){
+          str += args[i]
+        }
+        return str + this.length;
+      }
+      console.log(chainStr.apply([1,2,3]))
+    </script>
+</body>
+</html>

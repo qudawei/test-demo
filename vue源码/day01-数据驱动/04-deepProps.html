@@ -1,0 +1,94 @@
+<!--
+ * @Description: 深层对象的处理
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-05 11:42:28
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-05 20:22:39
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-deepProps</title>
+</head>
+<body>
+    <div id="root">
+        <p>{{name.firstNm}}</p>
+        <p>{{name.lastNm}}</p>
+    </div>
+    <script>
+        // 整合代码
+        class Tvue{
+            constructor(props){
+                // vue 中内部数据带_, 只读用$
+                const {el, data} = props;
+                this._el = el;
+                this._data = data;
+                // 准备模板
+                this._templateDOM = document.querySelector(this._el);
+                // 页面根元素
+                this._parentDOM = this._templateDOM.parentNode;
+                // 渲染工作
+                this.render(this._templateDOM, this._data);
+            }
+            // 渲染方法
+            render(){
+                // 1.解析模板
+                let realHTMLDOM = this._templateDOM.cloneNode(true); // 用 模板 拷贝 得到 一个 准 DOM
+                this.compiler(realHTMLDOM, this._data);
+                this.update(realHTMLDOM);
+            }
+            // 解析模板方法
+            compiler(template, data){
+                let childNodes = template.childNodes;
+                // 正则获取括号中内容 .+任意字符 匹配：{{name}}
+                let rbracket = /\{\{(.+?)\}\}/g;
+                for(let i = 0; i < childNodes.length; i++ ){
+                    let type = childNodes[i].nodeType; // 3是文本类型 1是元素类型
+                    if(type === 3){
+                        // 文本类型有nodevalue
+                        let txt = childNodes[i].nodeValue;
+                        // 检验有没有双括号 匹配一次执行一次
+                        txt = txt.replace(rbracket, (_, $1) => {
+                            let path = $1.trim();
+                            let value = this.getValueByPath(this._data, path)
+                            return value;
+                        })
+                        childNodes[i].nodeValue = txt;
+                    }else if(type === 1){ 
+                        this.compiler(childNodes[i], data)
+                    }
+                }
+            }
+            // 将dom更新到页面上
+            update(realHTMLDOM){
+                // 获取页面根元素  vue中会每次变化都生成一个虚拟dom
+                this._parentDOM.replaceChild(realHTMLDOM, document.querySelector(this._el));
+            }
+            // 链式调用
+            getValueByPath(obj, path){
+                let paths = path.split('.');
+                let props;
+                let res = obj;
+                while(props = paths.shift()){
+                    res = res[props];
+                }
+                return res;
+            }
+        }
+        
+        let app = new Tvue({
+            el: '#root',
+            data:{
+               name: {
+                   firstNm: '张',
+                   lastNm: '三丰'
+               }
+            }
+        })
+    </script>
+</body>
+</html>
