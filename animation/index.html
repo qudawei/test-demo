@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-06-14 13:47:01
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-06-14 14:40:33
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=ß, initial-scale=1.0">
+    <title>简单动画</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            background: lightblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click me</button>
+    <div id="box"></div>
+</body>
+<script>
+    //1.获取事件源
+    let btn = document.getElementById('btn');
+    let box = document.getElementById('box');
+    let timer = null;
+    //2.给按钮绑定事件
+    btn.onclick = function(){
+        //每次点击清空上一此运动
+        clearInterval(timer)
+        console.log('box', box.offsetLeft);
+        //3.让物体动起来
+        timer = setInterval(() => {
+            //设置边界
+            if(box.offsetLeft >= 500){
+                clearInterval(timer)
+            }else{
+                box.style.left = box.offsetLeft + 10 + 'px'
+            }
+        }, 30);
+    }
+</script>
+</html>

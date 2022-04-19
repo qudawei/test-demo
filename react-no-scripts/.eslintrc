@@ -1,0 +1,29 @@
+{
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true
+    },
+    "extends": "eslint:recommended",//可以选择一些流行的style 比如google
+    "plugins": [
+      "react" //插件，支持react
+    ],
+    "rules": {
+      "indent": [ //缩进
+        "error", //可选项为 off warn error 对应的数字 0 1 2
+        "space"
+      ],
+      "linebreak-style": [//换行的style
+        "error",
+        "unix"
+      ],
+      "quotes": [//引号 是单的还是双的
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    }
+  }

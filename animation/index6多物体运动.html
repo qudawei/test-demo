@@ -1,0 +1,58 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-06-14 18:18:38
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-06-14 18:55:40
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index6多物体运动</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 80px;
+            background: lightblue;
+            margin-bottom:20px ;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+    var box = document.getElementById('box')
+    window.onload = function(){
+        var allBoxs = document.getElementsByTagName('div');
+        var speed = 0;
+        for(var i = 0;i < allBoxs.length; i++){
+            allBoxs[i].onmouseout = function(){
+                startAnimation(this, 200)
+            }
+            allBoxs[i].onmouseover = function(){
+                startAnimation(this, 600)
+            }
+        }
+        function startAnimation(obj, endTarget){
+            clearInterval(obj.timer)
+            //注意timer 是当前元素timer
+            obj.timer = setInterval(() => {
+                speed = (endTarget - obj.offsetWidth) / 20;
+                speed = speed > 0? Math.ceil(speed) :Math.floor(speed)
+               obj.style.width = obj.offsetWidth + speed + 'px';
+            }, 30);
+        }
+    }
+</script>
+</html>

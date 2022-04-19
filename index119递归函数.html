@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index119递归函数</title>
+</head>
+<body>
+    <script>
+        function factorial(num){
+            let product = 1;
+            for(let i = 1; i<=num; i++){
+                product *= i;
+            }
+            return product;
+        }
+        // 函数递归调用
+        function factorial2(num){
+            if(num === 1){
+                return num;
+            }else{
+                return num * factorial(num - 1)
+            }
+        }
+        console.log(factorial2(6));
+        let arr = [1,2,3,4,5]
+        for (const key in arr) {
+            if (arr.hasOwnProperty.call(arr, key)) {
+                console.log('key',typeof key)
+                const element = arr[key];
+                
+            }
+        }
+    </script>
+</body>
+</html>

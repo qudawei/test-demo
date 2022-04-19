@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-04-26 15:09:41
+ * @LastEditTime: 2021-05-17 10:53:36
+ * @LastEditors: David Qu
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>index109PubSubJS</title>
+  <style>
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pubsub-js/1.9.3/pubsub.js"></script>
+</head>
+
+<body>
+
+  test git branch
+  <script>
+    // create a function to subscribe to topics
+    var mySubscriber = function (msg, data) {
+      console.log('mySubscriber',msg, data);
+    };
+
+    // add the function to the list of subscribers for a particular topic
+    // we're keeping the returned token, in order to be able to unsubscribe
+    // from the topic later on
+    var token = PubSub.subscribe('MY TOPIC', mySubscriber);
+
+    // publish a topic asynchronously
+    PubSub.publish('MY TOPIC', 'what you make me do!');
+
+    // publish a topic synchronously, which is faster in some environments,
+    // but will get confusing when one topic triggers new topics in the
+    // same execution chain
+    // USE WITH CAUTION, HERE BE DRAGONS!!!
+    PubSub.publishSync('MY TOPIC', 'hello world!');
+    PubSub.publishSync('MY TOPIC', '22222');
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-06-14 14:45:47
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-06-14 15:04:20
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2拉开效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+            left: -200px;
+        }
+        #btn{
+            display: inline-block;
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            margin-top: -30px;
+            color:#fff;
+            background-color: black;
+            line-height: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <span id="btn">拉开</span>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        let btn = document.getElementById('btn');
+        let box = document.getElementById('box');
+        box.onmouseover = function(){
+            box.style.left = 0 + 'px'
+        }
+        box.onmouseout = function(){
+            box.style.left = -200 + 'px'
+        }
+    }
+</script>
+</html>
