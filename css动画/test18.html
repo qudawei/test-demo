@@ -1,0 +1,48 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-12-13 19:47:37
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-12-13 19:47:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .needle{
+            width: 3px;
+            height: 100px;
+            background-color: red;
+            animation: change 60s steps(60);
+        }
+        @keyframes change{
+            from{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="needle"></div>
+</body>
+</html>

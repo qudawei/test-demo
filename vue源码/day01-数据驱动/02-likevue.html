@@ -1,0 +1,74 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-05 11:42:28
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-05 11:46:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-likevue</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <p>{{name}}</p>
+        <p>{{message}}</p>
+    </div>
+    <script>
+        // 步骤拆解
+        // 1.拿到模板
+        // 2.拿到数据
+        // 3.替换模板中{{}}  将值插入
+        // 4.放入页面中
+
+        // 1
+        let tempNode = document.querySelector('#root');
+        // 2
+        let data = {
+            name:'jack',
+            message:'我是变速hi你最疼爱的？'
+        }
+        // 3 数据放在模板中
+        // 一般使用递归解决深层元素（深度优先 广度优先）
+        function compiler(template, data){
+            let childNodes = template.childNodes;
+            // 正则获取括号中内容 .+任意字符 匹配：{{name}}
+            let rbracket = /\{\{(.+?)\}\}/g;
+            for(let i = 0; i < childNodes.length; i++ ){
+                let type = childNodes[i].nodeType; // 3是文本类型 1是元素类型
+                if(type === 3){
+                    // 文本类型有nodevalue
+                    let txt = childNodes[i].nodeValue;
+                    // 检验有没有双括号 匹配一次执行一次
+                    txt = txt.replace(rbracket, function(_, $1){
+                        let key = $1.trim();
+                        return data[key];
+                    })
+                    childNodes[i].nodeValue = txt;
+                }else if(type === 1){ 
+                    compiler(childNodes[i], data)
+                }
+            }
+        }
+        console.log('template', tempNode);
+        // 复制一份dom
+        let generateNode = tempNode.cloneNode(true);
+        compiler(generateNode, data)
+        console.log('generateNode', generateNode);
+        // 替换子元素
+        root.parentNode.replaceChild( generateNode, root );
+        // 总结
+        // 简化版 
+        // 1.虚拟dom  
+        // 2.只考虑了单属性层级{{name}},{{name[0]}} 
+        // 3.代码没有整合
+        
+    </script>
+</body>
+</html>

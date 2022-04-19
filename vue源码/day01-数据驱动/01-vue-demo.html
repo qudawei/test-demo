@@ -1,0 +1,41 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-05 11:42:28
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-05 11:11:05
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-vue-demo</title>
+    <script src="../src/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <p>{{name}}</p>
+        <p>{{message}}</p>
+    </div>
+    <script>
+        // let root = document.getElementById("root");
+        // console.log('root', root)
+        console.log('before', root.innerHTML);
+        let app = new Vue({
+            el:'#root',
+            data:{
+                name:'jack',
+                message:'我是变速hi你最疼爱的？'
+            }
+        })
+        // 挂载：vue帮忙实现
+        console.log('after', root.innerHTML);
+        console.log('root', root)
+
+        
+    </script>
+</body>
+</html>

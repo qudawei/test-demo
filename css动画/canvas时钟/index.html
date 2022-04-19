@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>canvas时钟</title>
+    <script src="Time.js"></script>
+</head>
+
+<body>
+
+    <canvas id="text" height="500" width="500"></canvas>
+    <script>
+        let element = document.querySelector("#text");
+        let canvas = new Panel(element);
+        canvas.dot = new Config(8,0,'red');
+        canvas.time();
+    </script>
+</body>
+
+</html>

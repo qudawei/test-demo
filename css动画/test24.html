@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>js的下拉菜单效果</title>
+  <style type="text/css">
+    *{
+      padding:0px;
+      margin:0px;
+    }
+    ul li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none
+    }
+    .header{
+      height: 45px;
+      background-color:#FBFBFB;
+      border-bottom: 1px solid #C7C7C7;
+    }
+    .header-center{
+      width: 1000px;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+    }
+    .header-mobile{
+      width: 130px;
+      position: absolute;
+      top:0;
+      right: 0;
+      text-align: center;
+    }
+/*   .header-mobile:hover .header-mobile-list{
+      display: block;
+    }*/
+    .header-mobile a{
+      display: block;
+      height: 45px;
+      line-height: 45px;
+      color:#000000;
+    }
+    .header-mobile-list{
+      display: none;
+      background:url(bg.png) no-repeat;
+      background-position: 20px 18px;
+    }
+    .header-mobile-list li{
+      height: 45px;
+      border-bottom: 1px dashed gray;
+      font-family: '微软雅黑';
+      line-height: 50px;
+      padding-left: 35px;
+      padding-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-center">
+      <div class="header-mobile" id="headerMobile">
+          <a href="">移动客户端</a>
+          <ul class="header-mobile-list" id="mobileList">
+            <li>新浪微博</li>
+            <li>新浪新闻</li>
+            <li>新浪体育</li>
+            <li>新浪娱乐</li>
+            <li>新浪财经</li>
+            <li>天气通</li>
+          </ul>
+      </div>
+    </div>
+  </header>
+</body>
+<script type="text/javascript">
+//封装选择ID
+window.onload=function(){
+    function $(id){
+      return document.getElementById(id);
+    }
+//鼠标进
+    $("headerMobile").onmouseover=function(){
+      // this.style.display="none";
+      $("mobileList").style.display="block"
+      //给当钱的添加样式
+      this.style.boxShadow=" 0 2px 2px gray"
+    }
+//鼠标出
+    $("headerMobile").onmouseout=function(){
+      $("mobileList").style.display="none"
+      this.style.boxShadow='none'
+    }
+}
+</script>
+</html>
+

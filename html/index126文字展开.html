@@ -1,0 +1,85 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-05 15:32:57
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-08-05 15:33:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .errorReason {
+            position: relative;
+            width: 396px;
+            color: #aaaaaa;
+            line-height: 18px;
+            margin-top: 7px;
+        }
+
+        .errorReason>.case-errorReason {
+            color: #457af5;
+            position: absolute;
+            bottom: -13px;
+            right: 0;
+        }
+
+        .errorReason>.errorText {
+            word-break: break-all;
+            overflow: hidden;
+        }
+
+        .errorReason>.case-errorReason div:nth-of-type(1) {
+            display: none;
+        }
+
+        .error .errorMessage>.errorReason>.case-errorReason div:nth-of-type(2) {
+            display: block;
+        }
+
+        .errorReason>[type='checkbox'] {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 18px;
+            z-index: 1000;
+            opacity: 0;
+            bottom: -13px;
+            right: 0;
+        }
+
+        .errorReason>[type='checkbox']:checked+.case-errorReason div:nth-of-type(1) {
+            display: block;
+        }
+
+        .errorReason>[type='checkbox']:checked+.case-errorReason div:nth-of-type(2) {
+            display: none;
+        }
+
+        .errorReason>[type='checkbox']:checked+.case-errorReason+.errorText {
+            max-height: 36px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="errorReason">
+        <input type="checkbox" />
+        <div class="case-errorReason">
+            <div>展开</div>
+            <div>收起</div>
+        </div>
+        <div class="errorText">
+            我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！我累了,让我休息一会！
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-04-05 10:06:46
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-05 10:11:48
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo01</title>
+    <script src="../src/vue.js"></script>
+   
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="obj.name">
+        <span>{{obj.name}}</span>
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                obj:{
+                    name:'jack',
+                    age:18
+                }
+            }
+        })
+    </script>
+</body>
+</html>

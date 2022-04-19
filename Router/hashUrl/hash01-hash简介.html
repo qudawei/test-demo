@@ -4,7 +4,7 @@
  * @Author: David Qu
  * @Date: 2021-07-30 15:25:45
  * @LastEditors: David Qu
- * @LastEditTime: 2021-07-30 16:22:45
+ * @LastEditTime: 2021-08-04 11:21:08
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hash01-hash简介</title>
+   
 </head>
 <body>
     <a href="https://www.baidu.com#lll">dont't touch me</a>
@@ -21,6 +22,16 @@
         let url = new URL('https://developer.mozilla.org/en-US/docs/Web/API/URL/href');
         // 其中会包含URL标识中的 '#' 和 fragment 标识符（fragment 即我们通常所说的 URL hash）。
         console.log(url.hash) // Returns '#Examples'
+
+        window.addEventListener('load', () => {
+            console.log('1111', '页面加载了');
+        })
+        window.addEventListener('DOMContentLoaded', () => {
+            console.log('1111', 'dom解析了');
+        })
     </script>
+     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </body>
 </html>

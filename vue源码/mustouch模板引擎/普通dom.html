@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-02-14 19:28:59
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-14 19:37:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>普通dom</title>
+</head>
+<body>
+    <ul class="list"></ul>
+    <script>
+        let data = [
+            {name:'小李'},
+            {name:'小张'},
+            {name:'小王'},
+        ]
+        let ul = document.getElementsByClassName('list')[0];
+        console.log('ul', ul);
+        for(let i = 0; i < data.length; i++){
+            let li = document.createElement('li');
+            li.innerHTML = data[i].name;
+            console.log('li', li);
+            ul.appendChild(li)
+        }
+    </script>
+</body>
+</html>

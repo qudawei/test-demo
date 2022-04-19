@@ -1,0 +1,41 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-02-17 19:31:44
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-17 19:47:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则写法替换花括号test</title>
+</head>
+<body>
+    <script>
+        const data = {
+            string:'华为手机',
+            mode:'啦啦啦'
+        }
+        const str = "我爱你，你爱我，我们再也找不到~~~";
+        console.log(str.replace(/我/g, '你'));
+        const str2 = "我爱你{{string}}, 你爱我{{mode}}";
+        console.log(str2.replace(/\{\{(\w+)\}\}/g, function(a, $1, c, d){
+            console.log(a, $1, c, d);
+            return data[$1]
+        }));
+        function render(tempStr, data){
+            return   tempStr.replace(/\{\{(\w+)\}\}/g, function(a, $1, c, d){
+                console.log(a, $1, c, d);
+                return data[$1]
+            }) 
+            
+        }
+        let res = render(str2, data);
+        console.log('res', res);
+    </script>
+</body>
+</html>

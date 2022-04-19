@@ -1,0 +1,40 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-04 11:48:51
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-03-04 12:06:02
+-->
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>index140a-z数组</title>
+</head>
+<body>
+
+    <script>
+      // 生成a-z数组
+      // function generateArrFromAtoZ(flag = true){
+      //   let arr = [];
+      //   switch(flag){
+      //     case true:
+      //       arr.push('a','b','c');
+      //       return arr;
+      //   }
+      // }
+      function generateArrFromAtoZ(flag = true){
+        let startNum = 65;
+        let endNum = 91;
+        let numArr = []
+        for (let index = startNum; index < endNum; index++) {
+          numArr.push(String.fromCharCode(index))
+        }
+        return numArr;
+      }
+      let arr = generateArrFromAtoZ(true);
+      console.log('arr', arr);
+    </script>
+</body>
+</html>

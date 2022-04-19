@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-05 16:38:21
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-08-05 16:42:43
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>www.jb51.net 展开和收缩</title>
+  <style>
+    p {
+      margin: 0 auto;
+      width: 500px;
+      padding: 20px;
+      border: 5px solid #888;
+      background-color: #ffcc33;
+    }
+  </style>
+</head>
+<body>
+  <div >
+    <span class="txt">
+      我是一个小文本， 我是一个小文本，
+      我是一个小文本 我是一个小文本，
+      我是一个小文本 我是一个小文本，
+      我是一个小文本 我是一个小文本，
+      我是一个小文本 我是一个小文本，
+      我是一个小文本
+      我是一个小文本
+     </span>
+  </div>
+   <script>
+    let res = document.querySelector(".txt").getClientRects();
+    console.log('res', res);
+   </script>
+   
+</body>
+</html>

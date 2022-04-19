@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no;">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <style>
+        html,body {
+            font: 400 20px sans-serif,Microsoft Yahei,'微软雅黑',Helvetica,Arial,sans-serif;
+            width: 100%;
+            overflow-x: hidden;
+            background: #fff
+        }
+        html {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            color:#000;
+        }
+        html * {
+            outline: 0;
+            -webkit-text-size-adjust: none;
+            tap-highlight-color: rgba(0,0,0,0.05);
+            -webkit-tap-highlight-color: rgba(0,0,0,0.05);
+            -ms-tap-highlight-color: rgba(0,0,0,0.05);
+        }
+        ol,ul,li {
+            list-style: none;
+            list-style-image: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            word-break: break-all
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            word-break: break-all
+        }
+        .type-list{
+            color: #3e4349;
+            font-size: 0.3rem;
+            border-top: 1px solid #e0e1e2;
+        }
+        .type-list li{
+            height: 1rem;
+            line-height: 1rem;
+            padding-left: 0.58rem;
+            border-bottom: 1px solid #e0e1e2;
+        }
+    </style>
+    <title>选择发布类别</title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                        docEl.getElementsByTagName("body")[0].style.fontSize = docEl.style.fontSize;
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<ul class="type-list">
+    <li class="quanzhi">全职招聘</li>
+    <li class="jianzhi">兼职招聘</li>
+</ul>
+<script type="text/javascript" charset="utf-8" src='//j1.58cdn.com.cn/job/m/common/0.1/esl_zepto.min.js'></script>
+<script type="text/javascript" charset="utf-8" src="//a.58cdn.com.cn/app58/rms/app/js/app_20264.js?cachevers=743"></script>
+<script>
+        var localid="1";
+        var location1 = "1,1142,7551";
+        var geoia="39.993390,116.511760";
+        var geotype="baidu";
+        var formatsource="home"
+        var tjfromSource = '111'
+    var data = {
+        "quanzhi": {
+            url: location.protocol + "//pwebapp.58.com/zhaopin/" + localid + "/9224/s5?"
+            + "currentcate=quanzhi&id=9224" + "&location=" + location1 + "&geotype=" + geotype + "&geoia=" + geoia + "&formatsource=" + formatsource + "&cversion=",
+            title: "全职招聘"
+        },
+        "jianzhi": {
+            url: location.protocol + "//pwebapp.58.com/zhaopin/" + localid + "/13941/s5?"
+            + "currentcate=jianzhi&id=13941" + "&location=" + location1 + "&geotype=" + geotype + "&geoia=" + geoia + "&formatsource=" + formatsource + "&cversion=",
+            title: "兼职招聘"
+        }
+    };
+    /*$(".type-list").on("click","li",function(e){
+        var absoluteData = {};
+        if($(this).hasClass("quanzhi")){
+            absoluteData = data.quanzhi;
+            WBAPP.setWebLog("click","quanzhifabu","9224",["quanzhifabu_click"]);
+        }else{
+            absoluteData = data.jianzhi;
+            WBAPP.setWebLog("click"," jzfabu_jzzhaopinclick","13941",["jianzhifabu_click"]);
+        }
+        if(absoluteData){
+            WBAPP.loadPage("publish", absoluteData.url, absoluteData.title, false);
+        }
+    });*/
+    $(function () {
+        WBAPP.setWebLog("show", "appzpfabulbxz");
+        $(".type-list").on("click", "li", function (e) {
+            debugger
+            var absoluteData = {};
+            //判断全职还是兼职
+            var type = $(this).hasClass("quanzhi");
+            if (type) {
+                absoluteData = data.quanzhi;
+                WBAPP.setWebLog("click", "quanzhifabu", "9224", ["quanzhifabu_click"]);
+            } else {
+                absoluteData = data.jianzhi;
+                WBAPP.setWebLog("click", " jzfabu_jzzhaopinclick", "13941", ["jianzhifabu_click"]);
+            }
+            if (absoluteData) {
+                if (!type || WBAPP._compareVersion(WBAPP.appVersion, "7.16.0") === -1) {
+                    WBAPP.loadPage("publish", absoluteData.url, absoluteData.title, false);
+                } else {
+                    var param = {
+                        "action": "pagetrans",
+                        "tradeline": "job",
+                        "content": {
+                            "pagetype": "jobbpublish",
+                            "infoId": "",
+                            "edit": "1",
+                            "extraparameters":{
+                                "source":tjfromSource || ''
+                            }
+
+                        }
+                    };
+                    console.log('param', param);
+                    WBAPP._nativeBridge(param);
+                }
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-02-17 17:47:37
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-17 19:17:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mustache基本使用</title>
+    <!-- <script src="./lib/mustache.min.js"></script> -->
+    <!-- <script src="./lib/mustache.js"></script> -->
+
+</head>
+<body>
+    <div class="test"></div>
+    <script type="module">
+        import Mustache from './lib/mustache.js'
+        console.log('Mustache', Mustache);
+        const data = {
+            arr:[{ name: 'jack' },{ name: 'tom' },{ name: 'jerry' }]
+        };
+        let templateArr = `
+        <ul>
+            {{#arr}}
+                <li>
+                    {{name}}
+                </li>
+            {{/arr}}
+        </ul>
+        `
+        const domStr = Mustache.render(templateArr, data);
+        console.log('domStr', domStr);
+        const container = document.getElementsByClassName('test')[0];
+        container.innerHTML = domStr; 
+        
+    </script>
+</body>
+</html>

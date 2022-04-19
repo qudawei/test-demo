@@ -1,0 +1,91 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-12-03 18:02:38
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-12-03 19:35:04
+-->
+<html>
+
+<head>
+    <style>
+        @keyframes longer {
+            from {
+                width: 100px;
+            }
+
+            to {
+                width: 200px;
+            }
+        }
+
+        @-moz-keyframes longer {
+            from {
+                width: 100px;
+            }
+
+            to {
+                width: 200px;
+            }
+        }
+
+        @-webkit-keyframes longer {
+            from {
+                width: 100px;
+            }
+
+            to {
+                width: 200px;
+            }
+        }
+
+        @-o-keyframes longer {
+            from {
+                width: 100px;
+            }
+
+            to {
+                width: 200px;
+            }
+        }
+
+        #animator {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+
+        .animation {
+            animation: longer 0.5s;
+            -moz-animation: longer 0.5s;
+            -webkit-animation: longer 0.5s;
+            -o-animation: longer 0.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background-color: lightblue;height: 100px;">
+        <span>
+            我是不是你最疼爱的人？
+        </span>
+        <span>
+            lalla
+        </span>
+    </div>
+    <div id="animator" class="animation"></div>
+    <script>
+        var animator = document.getElementById('animator');
+        animator.addEventListener('animationend', endHandler);
+        function endHandler() {
+            animator.removeEventListener('animationend', endHandler);
+            animator.className = '';
+            setTimeout(function () {
+                animator.className = 'animation';
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>

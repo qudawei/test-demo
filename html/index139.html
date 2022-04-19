@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        .outer{
+            overflow: hidden;
+        }
+      .btn {
+        width: 100px;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        background: #fff;
+        color: #fff;
+        position: relative;
+        border: 1px solid red;
+      }
+      .btn:after {
+        position: absolute;
+        content: '';
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        top: 10px;
+        right: -15px;
+        border-radius: 100%;
+        border-left: 1px solid rebeccapurple;
+        border-top: 1px solid red;
+        transform: rotate(-45deg);
+      }
+    </style>
+</head>
+<body>
+    <div class="outer">
+            <div class="btn">
+            button
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-02-14 19:44:53
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-14 20:48:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组join法</title>
+</head>
+<body>
+    <ul class="list"></ul>
+    
+    <script>
+        let ul = document.getElementsByClassName('list')[0];
+        
+        
+        
+        let data = [
+            {name:'张三'},
+            {name:'李四'},
+            {name:'王五'},
+        ];
+        console.log('data', data);
+        for(let i = 0; i < data.length; i++){
+            ul.innerHTML += [
+            '<div>',
+            '    <li>',
+            ''+data[i].name+'',
+            '        <span>我是不是你最疼爱的人？你为什么不说话！</span>',
+            '    </li>',
+            '</div>',
+        ].join('');
+        }
+
+    </script>
+
+
+
+
+
+</body>
+</html>

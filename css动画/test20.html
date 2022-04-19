@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+		padding: 0;
+		margin:0;
+	}
+	#move{
+		position: relative;
+		width: 100%;
+		height: 20px;
+		background: grey;
+		color:white;
+		overflow: hidden;
+	}
+	#cont{
+		width: 100%;
+		height: 20px;
+		position:absolute;
+		left: 0;
+		top: 0;
+		animation:5s move infinite linear;
+	}
+	#cont .text{
+		width: 100%;
+		height: 20px;
+	}
+	@keyframes move{
+		0%{
+		    left: 0;
+		  }
+		100%{
+		    left: -100%;
+		    }
+	}
+    </style>
+</head>
+<body>
+    <div id="move">
+        <div id="cont">
+            <div class="text">1三玖是我老婆,春日野穹是我妹妹</div>
+            <div class="text">2三玖是我老婆,春日野穹是我妹妹</div>
+        </div>
+    </div>
+</body>
+</html>

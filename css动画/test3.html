@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>升降梯</title>
+    <style>
+        body {
+            background: linear-gradient(-180deg,#fee4cc,#f7ab91)
+        }
+
+        @keyframes langanAniKey {
+            0% {
+                transform: translateY(-200%)
+            }
+
+            to {
+                transform: translateY(0)
+            }
+        }
+
+        .langan {
+            animation: langanAniKey 2s cubic-bezier(.22,1,.36,1) .5s 1 normal both;
+            position: absolute;
+            left: 10%;
+            top: -8%;
+            z-index: 1;
+            will-change: transform
+        }
+    </style>
+</head>
+
+<body>
+    <div class="langan">
+        <img style="width: 82.66667vw;" src="https://s7.music.126.net/5fbe14ccc914bf80c73c7146/song1Bg.f8672b11ecb881103b136e03579bb0fb.png" alt="">
+    </div>
+</body>
+
+</html>

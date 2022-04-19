@@ -1,0 +1,131 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2021-08-26 19:15:33
+ * @LastEditors: David Qu
+ * @LastEditTime: 2021-09-21 21:50:21
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>index136前端箭头</title>
+    <style>
+        .message1,
+        .message2 {
+            width: 200px;
+            height: 80px;
+            margin: 100px auto;
+            background-color: green;
+            border-bottom-color: green;
+            /*为了给after伪元素自动继承*/
+            color: #fff;
+            font-size: 12px;
+            font-family: Arial;
+            line-height: 18px;
+            padding: 5px 12px 5px 12px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            position: relative;
+            word-break: break-all;
+        }
+
+        div.bubble {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            color: #86181d;
+            background-color: #ffdce0;
+            border-color: #cea0a5;
+            display: block;
+            border: 1px solid;
+            border-radius: 4px;
+            padding: 2px;
+        }
+
+        div.bubble::before {
+            content: ' ';
+            display: block;
+            border-right: 7px solid #ffdce0;
+            border-left: 7px solid transparent;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 4px;
+            left: -14px;
+            z-index: 3;
+        }
+
+        div.bubble::after {
+            content: ' ';
+            display: block;
+            border-right: 8px solid #86181d;
+            border-left: 8px solid transparent;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 3px;
+            left: -16.5px;
+            z-index: 2;
+        }
+        .div{
+        width: 200px;
+        height: 100px;
+        border: 2px solid #ff0;
+        position: relative;
+    	}
+        .div::before{
+            content: '';
+            width: 0;
+            height: 0;
+            border: 20px solid;
+            position: absolute;
+            bottom: -40px;
+            left: 140px;
+            border-color:  #ff0 transparent transparent;
+        }
+        .div::after{
+            content: '';
+            width: 0;
+            height: 0;
+            border: 20px solid;
+            position: absolute;
+            bottom: -36px;
+            left: 140px;
+            border-color:  #fff transparent transparent;
+        }   
+    </style>
+  
+</head>
+
+
+<body>
+    <div class="message1">
+        Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
+    </div>
+
+    <div class="message2">
+        Demos 代码演示、代码片段 - 读你，欢迎来到读你，http://dunizb.com/demo/
+    </div>
+    <div class="bubble"></div>
+    <div class="div">12312312</div>
+    <script>
+        document.body.addEventListener('click', e => { 
+            console.log('e.target.children[0]', e.target.innerHTML)
+                if (e.target && e.target.matches('#m-btn')) { 
+                    return; 
+                }             
+                console.log('body');
+            });             
+
+    </script>
+</body>
+
+
+</html>

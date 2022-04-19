@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-04 11:48:51
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-03-16 17:35:43
+-->
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>index142promise</title>
+</head>
+<body>
+    <script>
+      async function test(){
+        console.log(111);
+        let res = await getDatas();
+        console.log('res', res);
+        console.log('222')
+      }
+      function getDatas(flag = false){
+        return new Promise((resolve, reject) => {
+          if(flag){
+            reject({flag:4})
+            resolve({ flag:1 });
+            resolve({ flag:3 });
+          }
+        })
+      }
+      test();
+    </script>
+</body>
+</html>

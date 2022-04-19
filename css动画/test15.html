@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <canvas class="cv"></canvas>
+
+    <script type="text/javascript">
+        let cv = document.querySelector('.cv'),
+            ctx = cv.getContext('2d'),
+            rects = [], // 保存矩形的数组
+            n = 50, // 矩形个数
+            width, height, center, rect,
+            /*
+            * @param Number sx 物体开始绘制的x点
+            * @param Number sy 物体开始绘制的y点
+            * @param Number width 物体开始绘制的宽
+            * @param Number height 物体开始绘制的高
+            */
+            getCenter = (sx, sy, width, height) => { // 返回物体的中心点
+                return {
+                    x: sx + (width / 2),
+                    y: sy + (height / 2)
+                };
+            },
+            /*
+            * 绘制图形
+            */
+            draw = () => {
+                ctx.clearRect(0, 0, cv.width, cv.height);
+
+                for (let i = 0; i < rects.length; i ++) {
+                    rect = rects[i];
+                    center = getCenter(rect.x, rect.y, rect.width, rect.height); // 获取矩形的中心
+
+                    // 绘制
+                    ctx.save(); // 保存状态，以免影响其它物体
+                    ctx.fillStyle = rect.color;
+                    ctx.translate(center.x, center.y); // 将画布偏移到物体中心
+                    ctx.rotate(rect.deg * Math.PI / 180); // 旋转角度
+                    ctx.translate(-center.x, -center.y); // 将画布偏移回来
+                    ctx.beginPath(); // 开启路径
+                    ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+                    ctx.closePath(); // 关闭路径
+                    ctx.stroke(); // 描边绘制
+                    ctx.restore();// 恢复状态
+
+                    rect.deg += rect.v; // 增加角度
+                    rect.v += rect.speed;
+
+                    if (rect.v >= 180) { // 旋转180度后删除并重新生成
+                        rects.splice(i, 1);
+                        i --;
+                        create();
+                    }
+                }
+
+                requestAnimationFrame(draw);
+            },
+            /*
+            * 生成随机颜色
+            */
+            randColor = () => {
+                let r = Math.floor(Math.random() * 255),
+                    g = Math.floor(Math.random() * 255),
+                    b = Math.floor(Math.random() * 255);
+
+                return `rgb(${r},${g},${b})`;
+            },
+            /*
+            * 创建一个随机矩形
+            */
+            create = () => {
+                width = (Math.random() * 20) + 20;
+                height = (Math.random() * 20) + 20;
+
+                rects.push({
+                    x: (Math.random() * (cv.width - (2 * width))) + (2 * width),
+                    y: (Math.random() * (cv.height - (2 * height))) + (2 * height),
+                    width, height,
+                    color: randColor(),
+                    deg: Math.random() * 360,
+                    v: 0,
+                    speed: Math.random()
+                });
+            };
+
+        for (let i = 0; i < n; i ++) {
+            create();
+        }
+
+        // 画布大小
+        cv.width = 800;
+        cv.height = 500;
+
+        window.requestAnimationFrame = window.requestAnimationFrame
+                                       || window.webkitRequestAnimationFrame
+                                       || window.oRequestAnimationFrame
+                                       || window.mozRequestAnimationFrame
+                                       || window.msRequestAnimationFrame
+                                       || function (callback) {
+                                               setTimeout(callback, 1000 / 60);
+                                           };
+
+        draw(); // 开始绘制缩放
+    </script>
+</body>
+</html>

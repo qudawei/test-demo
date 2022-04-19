@@ -1,0 +1,34 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-01-25 15:02:42
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-02-07 11:21:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index4$on</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+        vm.$on('test', function (msg) {
+            console.log(msg)
+        })
+        vm.$emit('test', 'hi')
+
+    </script>
+</body>
+</html>

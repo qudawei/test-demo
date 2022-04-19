@@ -1,0 +1,57 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光碟转动</title>
+    <style>
+        body {
+            background: linear-gradient(-180deg,#fee4cc,#f7ab91)
+        }
+
+        .wrapper {
+            background: url(https://s7.music.126.net/5fbe14ccc914bf80c73c7146/p4_disks.5925716544a1e2b69afab33c59c12715.png);
+            background-size: cover;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 216.53333vw;
+            position: absolute;
+        }
+
+        @keyframes p4_coverAniKey {
+            0% {
+                transform: scale(1.15, .6) rotate(0deg)
+            }
+
+            to {
+                transform: scale(1.15, .6) rotate(1turn)
+            }
+        }
+
+        .disk {
+            border-radius: 50%;
+            overflow: hidden;
+            left: 31.208vw;
+            top: 51.26667vw;
+            width: 42.53333vw;
+            height: 42.53333vw;
+            transform-style: preserve-3d;
+            transform: translateZ(0) rotateX(-53.5deg) rotateY(0deg) rotate(0deg) scale(1);
+            opacity: 1;
+            transform-origin: 50% 50%;
+            display: block;
+            position: absolute;
+            background: url("http://p1.music.126.net/OuL80LuI347696oR98b3SA==/109951164738867906.jpg?imageView=1&thumbnail=600y600") 0% 0% / cover;
+            animation: p4_coverAniKey 10s linear 0s infinite normal forwards
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="disk"></div>
+    </div>
+</body>
+
+</html>
