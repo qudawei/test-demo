@@ -1,0 +1,43 @@
+<!--
+ * @Description: 
+ * @Version: 
+ * @Author: David Qu
+ * @Date: 2022-03-04 11:48:51
+ * @LastEditors: David Qu
+ * @LastEditTime: 2022-04-08 16:17:06
+-->
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>index145generator</title>
+</head>
+<body>
+    <script>
+    //  function *gen() {
+    //     const a = yield 'hello';
+    //     console.log('a', a);
+    //   }
+      
+    //   const g = gen();
+    //   // g.next(); // { value: 'hello', done: false }
+    //   console.log(1111, g.next());
+    //   setTimeout(() => g.next('hi'), 2000)  // 此时 a => 'hi'   一秒后打印‘hi'
+    function delayFun(){
+      setTimeout(()=>{
+        return 'llll'
+      }, 2000)
+    }
+    function* helloWorldGenerator(x) {
+      yield delayFun();
+      yield 'world';
+      return 'ending';
+    }
+
+    var hw = helloWorldGenerator(2);
+    console.log('hw', hw.next(2))
+    console.log('hw', hw.next())
+    console.log('hw', hw.next())
+  </script>
+</body>
+</html>
