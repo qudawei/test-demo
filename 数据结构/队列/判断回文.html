@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js"></script>
+</head>
+<body>
+    <script>
+
+        function isPalindrome(){
+            // 判断回文，正向输出和反向输出字符相等
+            let deque = new Queue();
+
+            // 1、正向输入
+            let str = 'whatdoesseodtahw';
+
+            for(let i = 0; i< str.length; i++){
+                deque.enqueue(str[i]);
+            }
+    
+            while(!deque.empty()){
+                if(deque.front() != deque.back()){
+                    return false
+                }else{
+                    deque.frontdequeue()
+                    deque.afterdequeue()
+                }
+            }
+            console.log('que', que);
+        }
+    </script>
+</body>
+</html>
